@@ -1,141 +1,99 @@
+"""Entry-point CLI para geração e revisão de palpites."""
 import argparse
-import math
+import sys
 from pathlib import Path
-from datetime import datetime
 
-import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from src.models.ensemble_model import EnsembleModel
+from src.history import HistoryStore, PredictionRecord
+from src.revision import RevisionManager
+
 DATA = ROOT / "data"
-REPORTS = ROOT / "reports"
+VALID_MODES = ("INITIAL", "T_24H", "T_2H", "T_1H", "FINAL")
 
-COMMON_SCORES = [(0,0),(1,0),(0,1),(1,1),(2,0),(0,2),(2,1),(1,2),(2,2),(3,1),(1,3),(3,0),(0,3)]
 
-def poisson_pmf(k: int, lam: float) -> float:
-    return math.exp(-lam) * (lam ** k) / math.factorial(k)
+def load_data() -> tuple[pd.DataFrame, pd.DataFrame]:
+    matches = pd.read_csv(DATA / "matches.csv")
+    teams = pd.read_csv(DATA / "teams.csv").set_index("team")
+    return matches, teams
 
-def expected_goals(row, ratings):
-    a = row["selecao_a"]
-    b = row["selecao_b"]
-    ra = ratings.loc[a]
-    rb = ratings.loc[b]
 
-    elo_diff = (ra["elo"] - rb["elo"]) / 400
-    base = 1.25
+def predict_match(row: pd.Series, teams: pd.DataFrame, mode: str, model: EnsembleModel) -> PredictionRecord:
+    home, away = row["home_team"], row["away_team"]
 
-    lambda_a = base * ra["attack"] * rb["defense"] * (1 + 0.18 * elo_diff)
-    lambda_b = base * rb["attack"] * ra["defense"] * (1 - 0.18 * elo_diff)
+    if home not in teams.index:
+        raise ValueError(f"Time não encontrado em teams.csv: {home}")
+    if away not in teams.index:
+        raise ValueError(f"Time não encontrado em teams.csv: {away}")
 
-    return max(lambda_a, 0.2), max(lambda_b, 0.2)
+    th, ta = teams.loc[home], teams.loc[away]
+    result = model.predict(
+        home_team=home, away_team=away,
+        elo_home=th["elo"], elo_away=ta["elo"],
+        attack_home=th["attack_rating"], defense_home=th["defense_rating"],
+        attack_away=ta["attack_rating"], defense_away=ta["defense_rating"],
+    )
 
-def score_distribution(lambda_a, lambda_b, max_goals=6):
-    rows = []
-    for ga in range(max_goals + 1):
-        for gb in range(max_goals + 1):
-            p = poisson_pmf(ga, lambda_a) * poisson_pmf(gb, lambda_b)
-            rows.append((ga, gb, p))
-    total = sum(x[2] for x in rows)
-    return [(ga, gb, p / total) for ga, gb, p in rows]
+    return PredictionRecord(
+        match_id=row["match_id"],
+        mode=mode,
+        home_team=home,
+        away_team=away,
+        recommended_score=result["recommended_score"],
+        prob_home=result["prob_home"],
+        prob_draw=result["prob_draw"],
+        prob_away=result["prob_away"],
+        confidence=result["confidence"],
+        lambda_home=result["lambda_home"],
+        lambda_away=result["lambda_away"],
+        top5_scores=result["top5_scores"],
+        notes=f"EnsembleModel | xG {home}={result['lambda_home']} {away}={result['lambda_away']}",
+    )
 
-def summarize_probs(dist):
-    p_a = sum(p for ga, gb, p in dist if ga > gb)
-    p_d = sum(p for ga, gb, p in dist if ga == gb)
-    p_b = sum(p for ga, gb, p in dist if ga < gb)
-    return p_a, p_d, p_b
-
-def recommended_score(dist):
-    ranked = sorted(dist, key=lambda x: x[2], reverse=True)
-    top = ranked[:8]
-    for s in COMMON_SCORES:
-        for ga, gb, p in top:
-            if (ga, gb) == s:
-                return ga, gb
-    return ranked[0][0], ranked[0][1]
-
-def confidence_label(p_a, p_d, p_b):
-    m = max(p_a, p_d, p_b)
-    if m >= 0.58:
-        return "Alta"
-    if m >= 0.45:
-        return "Moderada"
-    return "Baixa"
-
-def predict_one(row, ratings, mode):
-    la, lb = expected_goals(row, ratings)
-    dist = score_distribution(la, lb)
-    p_a, p_d, p_b = summarize_probs(dist)
-    ga, gb = recommended_score(dist)
-    conf = confidence_label(p_a, p_d, p_b)
-    top = sorted(dist, key=lambda x: x[2], reverse=True)[:5]
-
-    return {
-        "match_id": row["match_id"],
-        "mode": mode,
-        "selecao_a": row["selecao_a"],
-        "selecao_b": row["selecao_b"],
-        "placar_a": ga,
-        "placar_b": gb,
-        "prob_a": round(p_a, 3),
-        "prob_empate": round(p_d, 3),
-        "prob_b": round(p_b, 3),
-        "confianca": conf,
-        "ultima_revisao": datetime.now().isoformat(timespec="seconds"),
-        "observacoes": f"xG {row['selecao_a']}={la:.2f}; xG {row['selecao_b']}={lb:.2f}; top={top}"
-    }
-
-def write_report(pred):
-    REPORTS.mkdir(exist_ok=True)
-    path = REPORTS / f"{pred['match_id']}_{pred['mode']}.md"
-    text = f"""# {pred['selecao_a']} vs {pred['selecao_b']}
-
-## Palpite
-{pred['selecao_a']} {pred['placar_a']} x {pred['placar_b']} {pred['selecao_b']}
-
-## Probabilidades
-- Vitória {pred['selecao_a']}: {pred['prob_a']}
-- Empate: {pred['prob_empate']}
-- Vitória {pred['selecao_b']}: {pred['prob_b']}
-
-## Confiança
-{pred['confianca']}
-
-## Observações
-{pred['observacoes']}
-"""
-    path.write_text(text, encoding="utf-8")
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--all", action="store_true")
-    parser.add_argument("--match-id")
-    parser.add_argument("--mode", default="initial")
+    parser = argparse.ArgumentParser(description="Gerar palpite para partidas da Copa 2026")
+    parser.add_argument("--all", action="store_true", help="Prever todas as partidas")
+    parser.add_argument("--match-id", help="ID da partida (ex: GRP_E01)")
+    parser.add_argument("--mode", default="INITIAL", choices=VALID_MODES)
     args = parser.parse_args()
 
-    games = pd.read_csv(DATA / "jogos_fase_grupos.csv")
-    ratings = pd.read_csv(DATA / "team_ratings.csv").set_index("team")
+    if not args.all and not args.match_id:
+        parser.error("Use --all ou --match-id MATCH_ID")
+
+    matches, teams = load_data()
+    model = EnsembleModel()
+    store = HistoryStore(base_dir=DATA / "history")
+    revision_mgr = RevisionManager(store=store, reports_dir=ROOT / "reports" / "revision_history")
 
     if args.all:
-        selected = games
+        selected = matches[matches["stage"] == "group"]
     else:
-        if not args.match_id:
-            raise SystemExit("Use --all ou --match-id MATCH001")
-        selected = games[games["match_id"] == args.match_id]
+        selected = matches[matches["match_id"] == args.match_id]
         if selected.empty:
-            raise SystemExit(f"match_id não encontrado: {args.match_id}")
+            print(f"ERRO: match_id não encontrado: {args.match_id}", file=sys.stderr)
+            sys.exit(1)
 
-    preds = []
+    records = []
     for _, row in selected.iterrows():
-        pred = predict_one(row, ratings, args.mode)
-        preds.append(pred)
-        write_report(pred)
+        try:
+            record = predict_match(row, teams, args.mode, model)
+            diff = revision_mgr.compare_with_previous(record.match_id, record)
+            if diff.get("score_changed"):
+                record.notes += f" | MUDANÇA: {diff['previous_score']} → {record.recommended_score}"
+            revision_mgr.save_revision(record)
+            records.append(record)
+            gh, ga = record.recommended_score
+            print(f"{record.match_id} | {record.home_team} {gh}-{ga} {record.away_team} | {record.confidence}")
+        except ValueError as e:
+            print(f"AVISO: {e}", file=sys.stderr)
 
-    out = DATA / "palpites.csv"
-    old = pd.read_csv(out) if out.exists() and out.stat().st_size > 0 else pd.DataFrame()
-    new = pd.DataFrame(preds)
-    combined = pd.concat([old, new], ignore_index=True) if not old.empty else new
-    combined.to_csv(out, index=False)
-    print(combined.tail(len(preds)).to_string(index=False))
+    print(f"\n{len(records)} palpite(s) gerado(s). Modo: {args.mode}")
+
 
 if __name__ == "__main__":
     main()
