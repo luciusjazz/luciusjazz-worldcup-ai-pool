@@ -2,59 +2,59 @@
 
 ## Objetivo do projeto
 
-Assistente recreativo para bolão da Copa do Mundo FIFA 2026. Gera e revisa palpites de placar usando agentes especializados, fontes públicas e modelo estatístico simples (Poisson).
+Assistente recreativo para bolão da Copa do Mundo FIFA 2026 ("Entre Amigos"). Gera e revisa palpites de placar usando modelos estatísticos e agentes especializados.
+
+> **Não realiza apostas nem recomendações financeiras.**
 
 ## Estrutura
 
 ```
-AGENTS.md          # Descrição dos agentes e pesos (lido por Codex e Claude)
-CLAUDE.md          # Este arquivo — instruções específicas para Claude Code
-skills/            # Personas dos agentes especializados
-workflows/         # Sequências de revisão (inicial, T-24h, T-2h, sob demanda)
-data/              # CSVs de jogos, ratings e palpites
-scripts/           # predict_match.py, schedule_generator.py
-reports/           # Relatórios gerados (Markdown por jogo)
-docs/              # Documentação e prompts de referência
-codex/             # Automações para Codex (equivalente a este arquivo)
+src/models/         # EloModel, PoissonModel, DixonColesModel, MonteCarloSimulation, EnsembleModel
+src/agents/         # 8 agentes com interface AgentResult(findings, confidence, recommendations)
+src/history.py      # HistoryStore — salva JSONL em data/history/<match_id>.jsonl
+src/evaluation.py   # Evaluator — 7 categorias de pontuação do bolão Entre Amigos
+src/revision.py     # RevisionManager — compara revisões, gera reports/revision_history/*.md
+data/teams.csv      # 48 seleções com ELO, attack_rating, defense_rating
+data/matches.csv    # 72 partidas fase de grupos (datas placeholder)
+scripts/predict_match.py  # CLI principal
 ```
 
 ## Como rodar
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 
-# Previsão inicial para todos os jogos
-python scripts/predict_match.py --all --mode initial
+# Previsão inicial de todos os jogos
+python scripts/predict_match.py --all --mode INITIAL
 
-# Previsão de um jogo específico
-python scripts/predict_match.py --match-id MATCH001 --mode review
+# Revisão T-24h de um jogo
+python scripts/predict_match.py --match-id GRP_E01 --mode T_24H
 
 # Gerar agenda de revisões
-python scripts/schedule_generator.py
+python scripts/generate_automations.py
+
+# Testes
+pytest
 ```
 
-## Tarefas comuns
+## Modos válidos
 
-- **Previsão inicial**: rodar `predict_match.py --all --mode initial`
-- **Revisão pré-jogo**: seguir `workflows/revisao-pre-jogo.md` para o próximo jogo
-- **Revisão sob demanda**: seguir `workflows/revisao-sob-demanda.md`
-- **Ver agentes disponíveis**: ler arquivos em `skills/`
+`INITIAL` | `T_24H` | `T_2H` | `T_1H` | `FINAL`
+
+## Pontuação do bolão
+
+1. Placar Exato = 25pts
+2. Vencedor + gols vencedor = 18pts
+3. Vencedor + saldo = 15pts
+4. Qualquer empate = 15pts
+5. Vencedor + gols perdedor = 12pts
+6. Vencedor = 10pts
+7. Gols de algum time = 5pts
 
 ## Princípios obrigatórios
 
 1. Não inventar lesões, escalações, notícias ou dados.
-2. Registrar fontes quando houver coleta de informação externa.
-3. Declarar incerteza quando a informação for fraca, antiga ou contraditória.
-4. Separar fato, inferência e especulação.
-5. Usar horário `America/Sao_Paulo` para agendamento de revisões.
-6. Priorizar placares plausíveis para bolão: `0-0, 1-0, 1-1, 2-0, 2-1, 1-2, 0-1, 2-2, 3-1`.
-
-## Agentes (skills/)
-
-Cada arquivo em `skills/` define uma persona. O **Gerente de Palpite** consolida todos e emite o palpite final seguindo o formato em `AGENTS.md`.
-
-## Formato de saída esperado
-
-Ver seção "Formato final" em `AGENTS.md`.
+2. Registrar fontes quando houver coleta externa.
+3. Declarar incerteza quando a informação for fraca ou contraditória.
+4. Usar horário `America/Sao_Paulo`.
+5. Priorizar placares plausíveis: `0-0, 1-0, 1-1, 2-0, 2-1`.
