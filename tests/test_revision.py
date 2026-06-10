@@ -64,3 +64,46 @@ def test_compare_no_previous(manager):
     r = make_record("GRP_NEW", "INITIAL", (1, 0), "Baixa")
     diff = manager.compare_with_previous("GRP_NEW", r)
     assert diff["has_previous"] is False
+
+
+def test_report_includes_agent_contributions_section(tmp_path):
+    from src.history import HistoryStore, PredictionRecord
+    from src.revision import RevisionManager
+
+    store = HistoryStore(base_dir=tmp_path / "history")
+    manager = RevisionManager(store=store, reports_dir=tmp_path / "reports")
+
+    record = PredictionRecord(
+        match_id="TEST01",
+        mode="INITIAL",
+        home_team="Brazil",
+        away_team="Argentina",
+        recommended_score=(2, 1),
+        prob_home=0.45,
+        prob_draw=0.27,
+        prob_away=0.28,
+        confidence="Moderada",
+        lambda_home=1.5,
+        lambda_away=1.2,
+        top5_scores=[(2, 1, 0.12), (1, 0, 0.10), (2, 0, 0.09), (1, 1, 0.09), (3, 1, 0.07)],
+        agent_contributions=[
+            {
+                "agent_name": "Historical World Cup Analyst",
+                "weight": 0.06,
+                "confidence": 0.7,
+                "adjustment_home": -0.05,
+                "adjustment_away": -0.05,
+                "rationale": "xG acima da média histórica.",
+                "effective_contribution": -0.0042,
+            }
+        ],
+        context_adjustment=-0.02,
+    )
+
+    manager.save_revision(record)
+    report_path = tmp_path / "reports" / "TEST01_INITIAL.md"
+    content = report_path.read_text(encoding="utf-8")
+
+    assert "## Contribuição dos Agentes" in content
+    assert "Historical World Cup Analyst" in content
+    assert "-0.0200" in content or "-0.02" in content

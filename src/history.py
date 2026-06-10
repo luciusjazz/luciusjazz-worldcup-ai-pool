@@ -25,6 +25,8 @@ class PredictionRecord:
     lambda_away: float
     top5_scores: list
     notes: str = ""
+    agent_contributions: list = field(default_factory=list)
+    context_adjustment: float = 0.0
     timestamp: str = field(default_factory=lambda: datetime.now(TZ).isoformat(timespec="seconds"))
 
     def __post_init__(self):

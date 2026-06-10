@@ -61,5 +61,29 @@ class RevisionManager:
 
 ## Notas
 {record.notes or "—"}
+
+## Contribuição dos Agentes
+
+| Agente | Peso | Conf. | Adj. Casa | Adj. Visit. | Contribuição | Rationale |
+|--------|------|-------|-----------|-------------|--------------|-----------|
+{self._render_agent_table(record.agent_contributions)}
+
+**Ajuste Final (context_adjustment):** {record.context_adjustment:+.4f}
+
+**Impacto esperado no placar:**
+- λ_casa × (1 + {record.context_adjustment:+.4f}) = {record.lambda_home * (1 + record.context_adjustment):.3f}
+- λ_visit × (1 - {record.context_adjustment:+.4f}) = {record.lambda_away * (1 - record.context_adjustment):.3f}
 """
         path.write_text(content, encoding="utf-8")
+
+    def _render_agent_table(self, contributions: list) -> str:
+        if not contributions:
+            return "| — | — | — | — | — | — | Nenhum agente registrado |"
+        rows = []
+        for c in contributions:
+            rows.append(
+                f"| {c['agent_name']} | {c['weight']:.2f} | {c['confidence']:.2f} "
+                f"| {c['adjustment_home']:+.3f} | {c['adjustment_away']:+.3f} "
+                f"| {c['effective_contribution']:+.4f} | {c['rationale']} |"
+            )
+        return "\n".join(rows)
