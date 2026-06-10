@@ -58,8 +58,8 @@ class EnsembleModel:
         lh = (elo_w * lh_elo + poi_w * lh_poi) / stat_total
         la = (elo_w * la_elo + poi_w * la_poi) / stat_total
 
-        lh = lh * (1 + self.weights.context * context_adjustment)
-        la = la * (1 - self.weights.context * context_adjustment)
+        lh = lh * (1 + context_adjustment)
+        la = la * (1 - context_adjustment)
         lh, la = max(lh, 0.1), max(la, 0.1)
 
         dc_result = self._dc.predict(home_team, away_team, lh, la)
@@ -92,5 +92,6 @@ class EnsembleModel:
                 "elo_lambda": (round(lh_elo, 3), round(la_elo, 3)),
                 "poisson_lambda": (round(lh_poi, 3), round(la_poi, 3)),
                 "context_adjustment": context_adjustment,
+                "lambda_after_context": (round(lh, 3), round(la, 3)),
             },
         }
