@@ -97,3 +97,56 @@ def test_placeholder_agent_has_neutral_adjustment(AgentClass):
     assert result.adjustment_home == 0.0
     assert result.adjustment_away == 0.0
     assert len(result.rationale) > 0
+
+
+def test_historical_agent_reduces_when_lambdas_high():
+    agent = HistoricalAgent()
+    ctx = {**MATCH_CONTEXT, "lambda_home": 2.0, "lambda_away": 1.5}
+    result = agent.analyze(ctx)
+    assert result.adjustment_home < 0, "Lambda alto deve reduzir ajuste home"
+    assert len(result.rationale) > 0
+
+
+def test_historical_agent_increases_when_lambdas_low():
+    agent = HistoricalAgent()
+    ctx = {**MATCH_CONTEXT, "lambda_home": 0.8, "lambda_away": 0.9}
+    result = agent.analyze(ctx)
+    assert result.adjustment_home > 0, "Lambda baixo deve aumentar ajuste home"
+
+
+def test_historical_agent_neutral_without_lambdas():
+    agent = HistoricalAgent()
+    result = agent.analyze(MATCH_CONTEXT)
+    assert result.adjustment_home == 0.0
+    assert result.adjustment_away == 0.0
+
+
+def test_red_team_agent_boosts_underdog_when_elo_diff_high():
+    agent = RedTeamAgent()
+    ctx = {**MATCH_CONTEXT, "elo_home": 2000, "elo_away": 1750}
+    result = agent.analyze(ctx)
+    assert result.adjustment_away > 0, "Zebra com diff > 200 deve ter ajuste positivo"
+    assert len(result.rationale) > 0
+
+
+def test_red_team_agent_neutral_when_elo_close():
+    agent = RedTeamAgent()
+    ctx = {**MATCH_CONTEXT, "elo_home": 1800, "elo_away": 1780}
+    result = agent.analyze(ctx)
+    assert result.adjustment_away == 0.0
+
+
+def test_confidence_auditor_reduces_home_when_overconfident():
+    auditor = ConfidenceAuditor()
+    ctx = {**MATCH_CONTEXT, "prob_home": 0.75, "prob_draw": 0.15, "prob_away": 0.10}
+    result = auditor.analyze(ctx)
+    assert result.adjustment_home < 0, "Excesso de confiança deve reduzir home"
+    assert len(result.rationale) > 0
+
+
+def test_confidence_auditor_neutral_for_balanced_game():
+    auditor = ConfidenceAuditor()
+    ctx = {**MATCH_CONTEXT, "prob_home": 0.40, "prob_draw": 0.30, "prob_away": 0.30}
+    result = auditor.analyze(ctx)
+    assert result.adjustment_home == 0.0
+    assert result.adjustment_away == 0.0

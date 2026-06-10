@@ -1,5 +1,8 @@
 from src.agents.base_agent import AgentResult, BaseAgent
 
+OVERCONFIDENCE_THRESHOLD = 0.70
+REGRESSION_ADJUSTMENT = -0.05
+
 
 class ConfidenceAuditor(BaseAgent):
     name = "Auditor de Confiança"
@@ -11,16 +14,36 @@ class ConfidenceAuditor(BaseAgent):
         prob_away = context.get("prob_away", 0.33)
         max_prob = max(prob_home, prob_draw, prob_away)
 
+        adjustment_home = 0.0
+        adjustment_away = 0.0
+        rationale = f"Probabilidades equilibradas (max={max_prob:.0%}). Sem ajuste."
+
         findings = []
         recommendations = []
 
-        if max_prob > 0.70:
+        if prob_home > OVERCONFIDENCE_THRESHOLD:
+            adjustment_home = REGRESSION_ADJUSTMENT
+            rationale = (
+                f"Excesso de confiança no mandante (prob_home={prob_home:.0%}). "
+                f"Regressão à média aplicada (adj={REGRESSION_ADJUSTMENT})."
+            )
             findings.append(
-                f"ALERTA: probabilidade máxima muito alta ({max_prob:.0%}). "
-                "Risco de excesso de confiança."
+                f"ALERTA: prob_home={prob_home:.0%} muito alta. Risco de excesso de confiança."
             )
             recommendations.append(
-                "Revisar premissas; reduzir confiança para 'Moderada' se não houver dados sólidos."
+                "Revisar premissas; considerar cenários alternativos para o visitante."
+            )
+        elif prob_away > OVERCONFIDENCE_THRESHOLD:
+            adjustment_away = REGRESSION_ADJUSTMENT
+            rationale = (
+                f"Excesso de confiança no visitante (prob_away={prob_away:.0%}). "
+                f"Regressão à média aplicada (adj={REGRESSION_ADJUSTMENT})."
+            )
+            findings.append(
+                f"ALERTA: prob_away={prob_away:.0%} muito alta. Risco de excesso de confiança."
+            )
+            recommendations.append(
+                "Revisar premissas; considerar cenários alternativos para o mandante."
             )
         elif max_prob > 0.55:
             findings.append(
@@ -40,4 +63,7 @@ class ConfidenceAuditor(BaseAgent):
             findings=findings,
             confidence=0.8,
             recommendations=recommendations,
+            adjustment_home=adjustment_home,
+            adjustment_away=adjustment_away,
+            rationale=rationale,
         )
