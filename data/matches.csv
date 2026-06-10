@@ -1,0 +1,73 @@
+match_id,date_utc,date_brasilia,stage,group,home_team,away_team,stadium,city,country,status
+GRP_A01,2026-06-11 17:00,2026-06-11 14:00,group,A,USA,Panama,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_A02,2026-06-11 20:00,2026-06-11 17:00,group,A,Mexico,Honduras,AT&T Stadium,Arlington,USA,scheduled
+GRP_A03,2026-06-15 17:00,2026-06-15 14:00,group,A,USA,Mexico,SoFi Stadium,Inglewood,USA,scheduled
+GRP_A04,2026-06-15 20:00,2026-06-15 17:00,group,A,Panama,Honduras,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_A05,2026-06-19 20:00,2026-06-19 17:00,group,A,USA,Honduras,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_A06,2026-06-19 20:00,2026-06-19 17:00,group,A,Panama,Mexico,Rose Bowl,Pasadena,USA,scheduled
+GRP_B01,2026-06-12 17:00,2026-06-12 14:00,group,B,Canada,Croatia,BMO Field,Toronto,Canada,scheduled
+GRP_B02,2026-06-12 20:00,2026-06-12 17:00,group,B,Morocco,Belgium,AT&T Stadium,Arlington,USA,scheduled
+GRP_B03,2026-06-16 17:00,2026-06-16 14:00,group,B,Canada,Morocco,BC Place,Vancouver,Canada,scheduled
+GRP_B04,2026-06-16 20:00,2026-06-16 17:00,group,B,Croatia,Belgium,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_B05,2026-06-20 20:00,2026-06-20 17:00,group,B,Canada,Belgium,BMO Field,Toronto,Canada,scheduled
+GRP_B06,2026-06-20 20:00,2026-06-20 17:00,group,B,Croatia,Morocco,Estadio Azteca,Mexico City,Mexico,scheduled
+GRP_C01,2026-06-12 23:00,2026-06-12 20:00,group,C,Argentina,Ecuador,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_C02,2026-06-13 02:00,2026-06-12 23:00,group,C,Colombia,Paraguay,SoFi Stadium,Inglewood,USA,scheduled
+GRP_C03,2026-06-16 23:00,2026-06-16 20:00,group,C,Argentina,Colombia,AT&T Stadium,Arlington,USA,scheduled
+GRP_C04,2026-06-17 02:00,2026-06-16 23:00,group,C,Ecuador,Paraguay,Hard Rock Stadium,Miami,USA,scheduled
+GRP_C05,2026-06-21 00:00,2026-06-20 21:00,group,C,Argentina,Paraguay,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_C06,2026-06-21 00:00,2026-06-20 21:00,group,C,Ecuador,Colombia,SoFi Stadium,Inglewood,USA,scheduled
+GRP_D01,2026-06-13 17:00,2026-06-13 14:00,group,D,Germany,Italy,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_D02,2026-06-13 20:00,2026-06-13 17:00,group,D,Netherlands,Denmark,AT&T Stadium,Arlington,USA,scheduled
+GRP_D03,2026-06-17 17:00,2026-06-17 14:00,group,D,Germany,Netherlands,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_D04,2026-06-17 20:00,2026-06-17 17:00,group,D,Italy,Denmark,Hard Rock Stadium,Miami,USA,scheduled
+GRP_D05,2026-06-21 20:00,2026-06-21 17:00,group,D,Germany,Denmark,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_D06,2026-06-21 20:00,2026-06-21 17:00,group,D,Netherlands,Italy,AT&T Stadium,Arlington,USA,scheduled
+GRP_E01,2026-06-13 23:00,2026-06-13 20:00,group,E,Spain,Brazil,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_E02,2026-06-14 02:00,2026-06-13 23:00,group,E,France,Nigeria,SoFi Stadium,Inglewood,USA,scheduled
+GRP_E03,2026-06-18 17:00,2026-06-18 14:00,group,E,Spain,France,AT&T Stadium,Arlington,USA,scheduled
+GRP_E04,2026-06-18 20:00,2026-06-18 17:00,group,E,Brazil,Nigeria,Hard Rock Stadium,Miami,USA,scheduled
+GRP_E05,2026-06-22 20:00,2026-06-22 17:00,group,E,Spain,Nigeria,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_E06,2026-06-22 20:00,2026-06-22 17:00,group,E,Brazil,France,AT&T Stadium,Arlington,USA,scheduled
+GRP_F01,2026-06-14 17:00,2026-06-14 14:00,group,F,Portugal,England,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_F02,2026-06-14 20:00,2026-06-14 17:00,group,F,Turkey,South Korea,SoFi Stadium,Inglewood,USA,scheduled
+GRP_F03,2026-06-18 23:00,2026-06-18 20:00,group,F,Portugal,Turkey,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_F04,2026-06-19 02:00,2026-06-18 23:00,group,F,England,South Korea,Rose Bowl,Pasadena,USA,scheduled
+GRP_F05,2026-06-23 00:00,2026-06-22 21:00,group,F,Portugal,South Korea,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_F06,2026-06-23 00:00,2026-06-22 21:00,group,F,England,Turkey,AT&T Stadium,Arlington,USA,scheduled
+GRP_G01,2026-06-14 23:00,2026-06-14 20:00,group,G,Uruguay,Venezuela,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_G02,2026-06-15 02:00,2026-06-14 23:00,group,G,Switzerland,Austria,AT&T Stadium,Arlington,USA,scheduled
+GRP_G03,2026-06-19 17:00,2026-06-19 14:00,group,G,Uruguay,Switzerland,Hard Rock Stadium,Miami,USA,scheduled
+GRP_G04,2026-06-19 20:00,2026-06-19 17:00,group,G,Venezuela,Austria,SoFi Stadium,Inglewood,USA,scheduled
+GRP_G05,2026-06-23 20:00,2026-06-23 17:00,group,G,Uruguay,Austria,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_G06,2026-06-23 20:00,2026-06-23 17:00,group,G,Venezuela,Switzerland,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_H01,2026-06-15 17:00,2026-06-15 14:00,group,H,Senegal,Ivory Coast,AT&T Stadium,Arlington,USA,scheduled
+GRP_H02,2026-06-15 20:00,2026-06-15 17:00,group,H,Japan,Iraq,Rose Bowl,Pasadena,USA,scheduled
+GRP_H03,2026-06-19 23:00,2026-06-19 20:00,group,H,Senegal,Japan,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_H04,2026-06-20 02:00,2026-06-19 23:00,group,H,Ivory Coast,Iraq,SoFi Stadium,Inglewood,USA,scheduled
+GRP_H05,2026-06-24 00:00,2026-06-23 21:00,group,H,Senegal,Iraq,AT&T Stadium,Arlington,USA,scheduled
+GRP_H06,2026-06-24 00:00,2026-06-23 21:00,group,H,Ivory Coast,Japan,Hard Rock Stadium,Miami,USA,scheduled
+GRP_I01,2026-06-16 17:00,2026-06-16 14:00,group,I,Ukraine,Saudi Arabia,Estadio Akron,Guadalajara,Mexico,scheduled
+GRP_I02,2026-06-16 20:00,2026-06-16 17:00,group,I,Costa Rica,Panama,BC Place,Vancouver,Canada,scheduled
+GRP_I03,2026-06-20 17:00,2026-06-20 14:00,group,I,Ukraine,Costa Rica,BMO Field,Toronto,Canada,scheduled
+GRP_I04,2026-06-20 20:00,2026-06-20 17:00,group,I,Saudi Arabia,Panama,Estadio Azteca,Mexico City,Mexico,scheduled
+GRP_I05,2026-06-24 20:00,2026-06-24 17:00,group,I,Ukraine,Panama,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_I06,2026-06-24 20:00,2026-06-24 17:00,group,I,Saudi Arabia,Costa Rica,AT&T Stadium,Arlington,USA,scheduled
+GRP_J01,2026-06-16 23:00,2026-06-16 20:00,group,J,Australia,Bolivia,SoFi Stadium,Inglewood,USA,scheduled
+GRP_J02,2026-06-17 02:00,2026-06-16 23:00,group,J,Cameroon,Egypt,Hard Rock Stadium,Miami,USA,scheduled
+GRP_J03,2026-06-21 17:00,2026-06-21 14:00,group,J,Australia,Cameroon,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_J04,2026-06-21 20:00,2026-06-21 17:00,group,J,Bolivia,Egypt,Rose Bowl,Pasadena,USA,scheduled
+GRP_J05,2026-06-25 00:00,2026-06-24 21:00,group,J,Australia,Egypt,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_J06,2026-06-25 00:00,2026-06-24 21:00,group,J,Bolivia,Cameroon,AT&T Stadium,Arlington,USA,scheduled
+GRP_K01,2026-06-17 17:00,2026-06-17 14:00,group,K,Algeria,Tunisia,Estadio Azteca,Mexico City,Mexico,scheduled
+GRP_K02,2026-06-17 20:00,2026-06-17 17:00,group,K,South Africa,DR Congo,BMO Field,Toronto,Canada,scheduled
+GRP_K03,2026-06-21 23:00,2026-06-21 20:00,group,K,Algeria,South Africa,SoFi Stadium,Inglewood,USA,scheduled
+GRP_K04,2026-06-22 02:00,2026-06-21 23:00,group,K,Tunisia,DR Congo,Hard Rock Stadium,Miami,USA,scheduled
+GRP_K05,2026-06-26 00:00,2026-06-25 21:00,group,K,Algeria,DR Congo,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_K06,2026-06-26 00:00,2026-06-25 21:00,group,K,Tunisia,South Africa,AT&T Stadium,Arlington,USA,scheduled
+GRP_L01,2026-06-17 23:00,2026-06-17 20:00,group,L,Iran,Uzbekistan,Estadio Akron,Guadalajara,Mexico,scheduled
+GRP_L02,2026-06-18 02:00,2026-06-17 23:00,group,L,Jordan,New Zealand,BC Place,Vancouver,Canada,scheduled
+GRP_L03,2026-06-22 17:00,2026-06-22 14:00,group,L,Iran,Jordan,Levi's Stadium,Santa Clara,USA,scheduled
+GRP_L04,2026-06-22 20:00,2026-06-22 17:00,group,L,Uzbekistan,New Zealand,Rose Bowl,Pasadena,USA,scheduled
+GRP_L05,2026-06-26 20:00,2026-06-26 17:00,group,L,Iran,New Zealand,MetLife Stadium,East Rutherford,USA,scheduled
+GRP_L06,2026-06-26 20:00,2026-06-26 17:00,group,L,Uzbekistan,Jordan,AT&T Stadium,Arlington,USA,scheduled
