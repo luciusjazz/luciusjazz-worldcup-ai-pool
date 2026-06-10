@@ -2,7 +2,7 @@
 
 **Match ID:** GRP_G05
 **Revisão:** INITIAL
-**Timestamp:** 2026-06-10T05:22:49-03:00
+**Timestamp:** 2026-06-10T07:08:33-03:00
 
 ## Palpite
 Uruguay **1** x **0** Austria
