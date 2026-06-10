@@ -1,0 +1,217 @@
+match_id,home_team,away_team,mode,run_at_brasilia,cron_hint,command
+GRP_A01,USA,Panama,T_24H,2026-06-10 14:00,0 14 10 6 *,python scripts/predict_match.py --match-id GRP_A01 --mode T_24H
+GRP_A01,USA,Panama,T_2H,2026-06-11 12:00,0 12 11 6 *,python scripts/predict_match.py --match-id GRP_A01 --mode T_2H
+GRP_A01,USA,Panama,T_1H,2026-06-11 13:00,0 13 11 6 *,python scripts/predict_match.py --match-id GRP_A01 --mode T_1H
+GRP_A02,Mexico,Honduras,T_24H,2026-06-10 17:00,0 17 10 6 *,python scripts/predict_match.py --match-id GRP_A02 --mode T_24H
+GRP_A02,Mexico,Honduras,T_2H,2026-06-11 15:00,0 15 11 6 *,python scripts/predict_match.py --match-id GRP_A02 --mode T_2H
+GRP_A02,Mexico,Honduras,T_1H,2026-06-11 16:00,0 16 11 6 *,python scripts/predict_match.py --match-id GRP_A02 --mode T_1H
+GRP_A03,USA,Mexico,T_24H,2026-06-14 14:00,0 14 14 6 *,python scripts/predict_match.py --match-id GRP_A03 --mode T_24H
+GRP_A03,USA,Mexico,T_2H,2026-06-15 12:00,0 12 15 6 *,python scripts/predict_match.py --match-id GRP_A03 --mode T_2H
+GRP_A03,USA,Mexico,T_1H,2026-06-15 13:00,0 13 15 6 *,python scripts/predict_match.py --match-id GRP_A03 --mode T_1H
+GRP_A04,Panama,Honduras,T_24H,2026-06-14 17:00,0 17 14 6 *,python scripts/predict_match.py --match-id GRP_A04 --mode T_24H
+GRP_A04,Panama,Honduras,T_2H,2026-06-15 15:00,0 15 15 6 *,python scripts/predict_match.py --match-id GRP_A04 --mode T_2H
+GRP_A04,Panama,Honduras,T_1H,2026-06-15 16:00,0 16 15 6 *,python scripts/predict_match.py --match-id GRP_A04 --mode T_1H
+GRP_A05,USA,Honduras,T_24H,2026-06-18 17:00,0 17 18 6 *,python scripts/predict_match.py --match-id GRP_A05 --mode T_24H
+GRP_A05,USA,Honduras,T_2H,2026-06-19 15:00,0 15 19 6 *,python scripts/predict_match.py --match-id GRP_A05 --mode T_2H
+GRP_A05,USA,Honduras,T_1H,2026-06-19 16:00,0 16 19 6 *,python scripts/predict_match.py --match-id GRP_A05 --mode T_1H
+GRP_A06,Panama,Mexico,T_24H,2026-06-18 17:00,0 17 18 6 *,python scripts/predict_match.py --match-id GRP_A06 --mode T_24H
+GRP_A06,Panama,Mexico,T_2H,2026-06-19 15:00,0 15 19 6 *,python scripts/predict_match.py --match-id GRP_A06 --mode T_2H
+GRP_A06,Panama,Mexico,T_1H,2026-06-19 16:00,0 16 19 6 *,python scripts/predict_match.py --match-id GRP_A06 --mode T_1H
+GRP_B01,Canada,Croatia,T_24H,2026-06-11 14:00,0 14 11 6 *,python scripts/predict_match.py --match-id GRP_B01 --mode T_24H
+GRP_B01,Canada,Croatia,T_2H,2026-06-12 12:00,0 12 12 6 *,python scripts/predict_match.py --match-id GRP_B01 --mode T_2H
+GRP_B01,Canada,Croatia,T_1H,2026-06-12 13:00,0 13 12 6 *,python scripts/predict_match.py --match-id GRP_B01 --mode T_1H
+GRP_B02,Morocco,Belgium,T_24H,2026-06-11 17:00,0 17 11 6 *,python scripts/predict_match.py --match-id GRP_B02 --mode T_24H
+GRP_B02,Morocco,Belgium,T_2H,2026-06-12 15:00,0 15 12 6 *,python scripts/predict_match.py --match-id GRP_B02 --mode T_2H
+GRP_B02,Morocco,Belgium,T_1H,2026-06-12 16:00,0 16 12 6 *,python scripts/predict_match.py --match-id GRP_B02 --mode T_1H
+GRP_B03,Canada,Morocco,T_24H,2026-06-15 14:00,0 14 15 6 *,python scripts/predict_match.py --match-id GRP_B03 --mode T_24H
+GRP_B03,Canada,Morocco,T_2H,2026-06-16 12:00,0 12 16 6 *,python scripts/predict_match.py --match-id GRP_B03 --mode T_2H
+GRP_B03,Canada,Morocco,T_1H,2026-06-16 13:00,0 13 16 6 *,python scripts/predict_match.py --match-id GRP_B03 --mode T_1H
+GRP_B04,Croatia,Belgium,T_24H,2026-06-15 17:00,0 17 15 6 *,python scripts/predict_match.py --match-id GRP_B04 --mode T_24H
+GRP_B04,Croatia,Belgium,T_2H,2026-06-16 15:00,0 15 16 6 *,python scripts/predict_match.py --match-id GRP_B04 --mode T_2H
+GRP_B04,Croatia,Belgium,T_1H,2026-06-16 16:00,0 16 16 6 *,python scripts/predict_match.py --match-id GRP_B04 --mode T_1H
+GRP_B05,Canada,Belgium,T_24H,2026-06-19 17:00,0 17 19 6 *,python scripts/predict_match.py --match-id GRP_B05 --mode T_24H
+GRP_B05,Canada,Belgium,T_2H,2026-06-20 15:00,0 15 20 6 *,python scripts/predict_match.py --match-id GRP_B05 --mode T_2H
+GRP_B05,Canada,Belgium,T_1H,2026-06-20 16:00,0 16 20 6 *,python scripts/predict_match.py --match-id GRP_B05 --mode T_1H
+GRP_B06,Croatia,Morocco,T_24H,2026-06-19 17:00,0 17 19 6 *,python scripts/predict_match.py --match-id GRP_B06 --mode T_24H
+GRP_B06,Croatia,Morocco,T_2H,2026-06-20 15:00,0 15 20 6 *,python scripts/predict_match.py --match-id GRP_B06 --mode T_2H
+GRP_B06,Croatia,Morocco,T_1H,2026-06-20 16:00,0 16 20 6 *,python scripts/predict_match.py --match-id GRP_B06 --mode T_1H
+GRP_C01,Argentina,Ecuador,T_24H,2026-06-11 20:00,0 20 11 6 *,python scripts/predict_match.py --match-id GRP_C01 --mode T_24H
+GRP_C01,Argentina,Ecuador,T_2H,2026-06-12 18:00,0 18 12 6 *,python scripts/predict_match.py --match-id GRP_C01 --mode T_2H
+GRP_C01,Argentina,Ecuador,T_1H,2026-06-12 19:00,0 19 12 6 *,python scripts/predict_match.py --match-id GRP_C01 --mode T_1H
+GRP_C02,Colombia,Paraguay,T_24H,2026-06-11 23:00,0 23 11 6 *,python scripts/predict_match.py --match-id GRP_C02 --mode T_24H
+GRP_C02,Colombia,Paraguay,T_2H,2026-06-12 21:00,0 21 12 6 *,python scripts/predict_match.py --match-id GRP_C02 --mode T_2H
+GRP_C02,Colombia,Paraguay,T_1H,2026-06-12 22:00,0 22 12 6 *,python scripts/predict_match.py --match-id GRP_C02 --mode T_1H
+GRP_C03,Argentina,Colombia,T_24H,2026-06-15 20:00,0 20 15 6 *,python scripts/predict_match.py --match-id GRP_C03 --mode T_24H
+GRP_C03,Argentina,Colombia,T_2H,2026-06-16 18:00,0 18 16 6 *,python scripts/predict_match.py --match-id GRP_C03 --mode T_2H
+GRP_C03,Argentina,Colombia,T_1H,2026-06-16 19:00,0 19 16 6 *,python scripts/predict_match.py --match-id GRP_C03 --mode T_1H
+GRP_C04,Ecuador,Paraguay,T_24H,2026-06-15 23:00,0 23 15 6 *,python scripts/predict_match.py --match-id GRP_C04 --mode T_24H
+GRP_C04,Ecuador,Paraguay,T_2H,2026-06-16 21:00,0 21 16 6 *,python scripts/predict_match.py --match-id GRP_C04 --mode T_2H
+GRP_C04,Ecuador,Paraguay,T_1H,2026-06-16 22:00,0 22 16 6 *,python scripts/predict_match.py --match-id GRP_C04 --mode T_1H
+GRP_C05,Argentina,Paraguay,T_24H,2026-06-19 21:00,0 21 19 6 *,python scripts/predict_match.py --match-id GRP_C05 --mode T_24H
+GRP_C05,Argentina,Paraguay,T_2H,2026-06-20 19:00,0 19 20 6 *,python scripts/predict_match.py --match-id GRP_C05 --mode T_2H
+GRP_C05,Argentina,Paraguay,T_1H,2026-06-20 20:00,0 20 20 6 *,python scripts/predict_match.py --match-id GRP_C05 --mode T_1H
+GRP_C06,Ecuador,Colombia,T_24H,2026-06-19 21:00,0 21 19 6 *,python scripts/predict_match.py --match-id GRP_C06 --mode T_24H
+GRP_C06,Ecuador,Colombia,T_2H,2026-06-20 19:00,0 19 20 6 *,python scripts/predict_match.py --match-id GRP_C06 --mode T_2H
+GRP_C06,Ecuador,Colombia,T_1H,2026-06-20 20:00,0 20 20 6 *,python scripts/predict_match.py --match-id GRP_C06 --mode T_1H
+GRP_D01,Germany,Italy,T_24H,2026-06-12 14:00,0 14 12 6 *,python scripts/predict_match.py --match-id GRP_D01 --mode T_24H
+GRP_D01,Germany,Italy,T_2H,2026-06-13 12:00,0 12 13 6 *,python scripts/predict_match.py --match-id GRP_D01 --mode T_2H
+GRP_D01,Germany,Italy,T_1H,2026-06-13 13:00,0 13 13 6 *,python scripts/predict_match.py --match-id GRP_D01 --mode T_1H
+GRP_D02,Netherlands,Denmark,T_24H,2026-06-12 17:00,0 17 12 6 *,python scripts/predict_match.py --match-id GRP_D02 --mode T_24H
+GRP_D02,Netherlands,Denmark,T_2H,2026-06-13 15:00,0 15 13 6 *,python scripts/predict_match.py --match-id GRP_D02 --mode T_2H
+GRP_D02,Netherlands,Denmark,T_1H,2026-06-13 16:00,0 16 13 6 *,python scripts/predict_match.py --match-id GRP_D02 --mode T_1H
+GRP_D03,Germany,Netherlands,T_24H,2026-06-16 14:00,0 14 16 6 *,python scripts/predict_match.py --match-id GRP_D03 --mode T_24H
+GRP_D03,Germany,Netherlands,T_2H,2026-06-17 12:00,0 12 17 6 *,python scripts/predict_match.py --match-id GRP_D03 --mode T_2H
+GRP_D03,Germany,Netherlands,T_1H,2026-06-17 13:00,0 13 17 6 *,python scripts/predict_match.py --match-id GRP_D03 --mode T_1H
+GRP_D04,Italy,Denmark,T_24H,2026-06-16 17:00,0 17 16 6 *,python scripts/predict_match.py --match-id GRP_D04 --mode T_24H
+GRP_D04,Italy,Denmark,T_2H,2026-06-17 15:00,0 15 17 6 *,python scripts/predict_match.py --match-id GRP_D04 --mode T_2H
+GRP_D04,Italy,Denmark,T_1H,2026-06-17 16:00,0 16 17 6 *,python scripts/predict_match.py --match-id GRP_D04 --mode T_1H
+GRP_D05,Germany,Denmark,T_24H,2026-06-20 17:00,0 17 20 6 *,python scripts/predict_match.py --match-id GRP_D05 --mode T_24H
+GRP_D05,Germany,Denmark,T_2H,2026-06-21 15:00,0 15 21 6 *,python scripts/predict_match.py --match-id GRP_D05 --mode T_2H
+GRP_D05,Germany,Denmark,T_1H,2026-06-21 16:00,0 16 21 6 *,python scripts/predict_match.py --match-id GRP_D05 --mode T_1H
+GRP_D06,Netherlands,Italy,T_24H,2026-06-20 17:00,0 17 20 6 *,python scripts/predict_match.py --match-id GRP_D06 --mode T_24H
+GRP_D06,Netherlands,Italy,T_2H,2026-06-21 15:00,0 15 21 6 *,python scripts/predict_match.py --match-id GRP_D06 --mode T_2H
+GRP_D06,Netherlands,Italy,T_1H,2026-06-21 16:00,0 16 21 6 *,python scripts/predict_match.py --match-id GRP_D06 --mode T_1H
+GRP_E01,Spain,Brazil,T_24H,2026-06-12 20:00,0 20 12 6 *,python scripts/predict_match.py --match-id GRP_E01 --mode T_24H
+GRP_E01,Spain,Brazil,T_2H,2026-06-13 18:00,0 18 13 6 *,python scripts/predict_match.py --match-id GRP_E01 --mode T_2H
+GRP_E01,Spain,Brazil,T_1H,2026-06-13 19:00,0 19 13 6 *,python scripts/predict_match.py --match-id GRP_E01 --mode T_1H
+GRP_E02,France,Nigeria,T_24H,2026-06-12 23:00,0 23 12 6 *,python scripts/predict_match.py --match-id GRP_E02 --mode T_24H
+GRP_E02,France,Nigeria,T_2H,2026-06-13 21:00,0 21 13 6 *,python scripts/predict_match.py --match-id GRP_E02 --mode T_2H
+GRP_E02,France,Nigeria,T_1H,2026-06-13 22:00,0 22 13 6 *,python scripts/predict_match.py --match-id GRP_E02 --mode T_1H
+GRP_E03,Spain,France,T_24H,2026-06-17 14:00,0 14 17 6 *,python scripts/predict_match.py --match-id GRP_E03 --mode T_24H
+GRP_E03,Spain,France,T_2H,2026-06-18 12:00,0 12 18 6 *,python scripts/predict_match.py --match-id GRP_E03 --mode T_2H
+GRP_E03,Spain,France,T_1H,2026-06-18 13:00,0 13 18 6 *,python scripts/predict_match.py --match-id GRP_E03 --mode T_1H
+GRP_E04,Brazil,Nigeria,T_24H,2026-06-17 17:00,0 17 17 6 *,python scripts/predict_match.py --match-id GRP_E04 --mode T_24H
+GRP_E04,Brazil,Nigeria,T_2H,2026-06-18 15:00,0 15 18 6 *,python scripts/predict_match.py --match-id GRP_E04 --mode T_2H
+GRP_E04,Brazil,Nigeria,T_1H,2026-06-18 16:00,0 16 18 6 *,python scripts/predict_match.py --match-id GRP_E04 --mode T_1H
+GRP_E05,Spain,Nigeria,T_24H,2026-06-21 17:00,0 17 21 6 *,python scripts/predict_match.py --match-id GRP_E05 --mode T_24H
+GRP_E05,Spain,Nigeria,T_2H,2026-06-22 15:00,0 15 22 6 *,python scripts/predict_match.py --match-id GRP_E05 --mode T_2H
+GRP_E05,Spain,Nigeria,T_1H,2026-06-22 16:00,0 16 22 6 *,python scripts/predict_match.py --match-id GRP_E05 --mode T_1H
+GRP_E06,Brazil,France,T_24H,2026-06-21 17:00,0 17 21 6 *,python scripts/predict_match.py --match-id GRP_E06 --mode T_24H
+GRP_E06,Brazil,France,T_2H,2026-06-22 15:00,0 15 22 6 *,python scripts/predict_match.py --match-id GRP_E06 --mode T_2H
+GRP_E06,Brazil,France,T_1H,2026-06-22 16:00,0 16 22 6 *,python scripts/predict_match.py --match-id GRP_E06 --mode T_1H
+GRP_F01,Portugal,England,T_24H,2026-06-13 14:00,0 14 13 6 *,python scripts/predict_match.py --match-id GRP_F01 --mode T_24H
+GRP_F01,Portugal,England,T_2H,2026-06-14 12:00,0 12 14 6 *,python scripts/predict_match.py --match-id GRP_F01 --mode T_2H
+GRP_F01,Portugal,England,T_1H,2026-06-14 13:00,0 13 14 6 *,python scripts/predict_match.py --match-id GRP_F01 --mode T_1H
+GRP_F02,Turkey,South Korea,T_24H,2026-06-13 17:00,0 17 13 6 *,python scripts/predict_match.py --match-id GRP_F02 --mode T_24H
+GRP_F02,Turkey,South Korea,T_2H,2026-06-14 15:00,0 15 14 6 *,python scripts/predict_match.py --match-id GRP_F02 --mode T_2H
+GRP_F02,Turkey,South Korea,T_1H,2026-06-14 16:00,0 16 14 6 *,python scripts/predict_match.py --match-id GRP_F02 --mode T_1H
+GRP_F03,Portugal,Turkey,T_24H,2026-06-17 20:00,0 20 17 6 *,python scripts/predict_match.py --match-id GRP_F03 --mode T_24H
+GRP_F03,Portugal,Turkey,T_2H,2026-06-18 18:00,0 18 18 6 *,python scripts/predict_match.py --match-id GRP_F03 --mode T_2H
+GRP_F03,Portugal,Turkey,T_1H,2026-06-18 19:00,0 19 18 6 *,python scripts/predict_match.py --match-id GRP_F03 --mode T_1H
+GRP_F04,England,South Korea,T_24H,2026-06-17 23:00,0 23 17 6 *,python scripts/predict_match.py --match-id GRP_F04 --mode T_24H
+GRP_F04,England,South Korea,T_2H,2026-06-18 21:00,0 21 18 6 *,python scripts/predict_match.py --match-id GRP_F04 --mode T_2H
+GRP_F04,England,South Korea,T_1H,2026-06-18 22:00,0 22 18 6 *,python scripts/predict_match.py --match-id GRP_F04 --mode T_1H
+GRP_F05,Portugal,South Korea,T_24H,2026-06-21 21:00,0 21 21 6 *,python scripts/predict_match.py --match-id GRP_F05 --mode T_24H
+GRP_F05,Portugal,South Korea,T_2H,2026-06-22 19:00,0 19 22 6 *,python scripts/predict_match.py --match-id GRP_F05 --mode T_2H
+GRP_F05,Portugal,South Korea,T_1H,2026-06-22 20:00,0 20 22 6 *,python scripts/predict_match.py --match-id GRP_F05 --mode T_1H
+GRP_F06,England,Turkey,T_24H,2026-06-21 21:00,0 21 21 6 *,python scripts/predict_match.py --match-id GRP_F06 --mode T_24H
+GRP_F06,England,Turkey,T_2H,2026-06-22 19:00,0 19 22 6 *,python scripts/predict_match.py --match-id GRP_F06 --mode T_2H
+GRP_F06,England,Turkey,T_1H,2026-06-22 20:00,0 20 22 6 *,python scripts/predict_match.py --match-id GRP_F06 --mode T_1H
+GRP_G01,Uruguay,Venezuela,T_24H,2026-06-13 20:00,0 20 13 6 *,python scripts/predict_match.py --match-id GRP_G01 --mode T_24H
+GRP_G01,Uruguay,Venezuela,T_2H,2026-06-14 18:00,0 18 14 6 *,python scripts/predict_match.py --match-id GRP_G01 --mode T_2H
+GRP_G01,Uruguay,Venezuela,T_1H,2026-06-14 19:00,0 19 14 6 *,python scripts/predict_match.py --match-id GRP_G01 --mode T_1H
+GRP_G02,Switzerland,Austria,T_24H,2026-06-13 23:00,0 23 13 6 *,python scripts/predict_match.py --match-id GRP_G02 --mode T_24H
+GRP_G02,Switzerland,Austria,T_2H,2026-06-14 21:00,0 21 14 6 *,python scripts/predict_match.py --match-id GRP_G02 --mode T_2H
+GRP_G02,Switzerland,Austria,T_1H,2026-06-14 22:00,0 22 14 6 *,python scripts/predict_match.py --match-id GRP_G02 --mode T_1H
+GRP_G03,Uruguay,Switzerland,T_24H,2026-06-18 14:00,0 14 18 6 *,python scripts/predict_match.py --match-id GRP_G03 --mode T_24H
+GRP_G03,Uruguay,Switzerland,T_2H,2026-06-19 12:00,0 12 19 6 *,python scripts/predict_match.py --match-id GRP_G03 --mode T_2H
+GRP_G03,Uruguay,Switzerland,T_1H,2026-06-19 13:00,0 13 19 6 *,python scripts/predict_match.py --match-id GRP_G03 --mode T_1H
+GRP_G04,Venezuela,Austria,T_24H,2026-06-18 17:00,0 17 18 6 *,python scripts/predict_match.py --match-id GRP_G04 --mode T_24H
+GRP_G04,Venezuela,Austria,T_2H,2026-06-19 15:00,0 15 19 6 *,python scripts/predict_match.py --match-id GRP_G04 --mode T_2H
+GRP_G04,Venezuela,Austria,T_1H,2026-06-19 16:00,0 16 19 6 *,python scripts/predict_match.py --match-id GRP_G04 --mode T_1H
+GRP_G05,Uruguay,Austria,T_24H,2026-06-22 17:00,0 17 22 6 *,python scripts/predict_match.py --match-id GRP_G05 --mode T_24H
+GRP_G05,Uruguay,Austria,T_2H,2026-06-23 15:00,0 15 23 6 *,python scripts/predict_match.py --match-id GRP_G05 --mode T_2H
+GRP_G05,Uruguay,Austria,T_1H,2026-06-23 16:00,0 16 23 6 *,python scripts/predict_match.py --match-id GRP_G05 --mode T_1H
+GRP_G06,Venezuela,Switzerland,T_24H,2026-06-22 17:00,0 17 22 6 *,python scripts/predict_match.py --match-id GRP_G06 --mode T_24H
+GRP_G06,Venezuela,Switzerland,T_2H,2026-06-23 15:00,0 15 23 6 *,python scripts/predict_match.py --match-id GRP_G06 --mode T_2H
+GRP_G06,Venezuela,Switzerland,T_1H,2026-06-23 16:00,0 16 23 6 *,python scripts/predict_match.py --match-id GRP_G06 --mode T_1H
+GRP_H01,Senegal,Ivory Coast,T_24H,2026-06-14 14:00,0 14 14 6 *,python scripts/predict_match.py --match-id GRP_H01 --mode T_24H
+GRP_H01,Senegal,Ivory Coast,T_2H,2026-06-15 12:00,0 12 15 6 *,python scripts/predict_match.py --match-id GRP_H01 --mode T_2H
+GRP_H01,Senegal,Ivory Coast,T_1H,2026-06-15 13:00,0 13 15 6 *,python scripts/predict_match.py --match-id GRP_H01 --mode T_1H
+GRP_H02,Japan,Iraq,T_24H,2026-06-14 17:00,0 17 14 6 *,python scripts/predict_match.py --match-id GRP_H02 --mode T_24H
+GRP_H02,Japan,Iraq,T_2H,2026-06-15 15:00,0 15 15 6 *,python scripts/predict_match.py --match-id GRP_H02 --mode T_2H
+GRP_H02,Japan,Iraq,T_1H,2026-06-15 16:00,0 16 15 6 *,python scripts/predict_match.py --match-id GRP_H02 --mode T_1H
+GRP_H03,Senegal,Japan,T_24H,2026-06-18 20:00,0 20 18 6 *,python scripts/predict_match.py --match-id GRP_H03 --mode T_24H
+GRP_H03,Senegal,Japan,T_2H,2026-06-19 18:00,0 18 19 6 *,python scripts/predict_match.py --match-id GRP_H03 --mode T_2H
+GRP_H03,Senegal,Japan,T_1H,2026-06-19 19:00,0 19 19 6 *,python scripts/predict_match.py --match-id GRP_H03 --mode T_1H
+GRP_H04,Ivory Coast,Iraq,T_24H,2026-06-18 23:00,0 23 18 6 *,python scripts/predict_match.py --match-id GRP_H04 --mode T_24H
+GRP_H04,Ivory Coast,Iraq,T_2H,2026-06-19 21:00,0 21 19 6 *,python scripts/predict_match.py --match-id GRP_H04 --mode T_2H
+GRP_H04,Ivory Coast,Iraq,T_1H,2026-06-19 22:00,0 22 19 6 *,python scripts/predict_match.py --match-id GRP_H04 --mode T_1H
+GRP_H05,Senegal,Iraq,T_24H,2026-06-22 21:00,0 21 22 6 *,python scripts/predict_match.py --match-id GRP_H05 --mode T_24H
+GRP_H05,Senegal,Iraq,T_2H,2026-06-23 19:00,0 19 23 6 *,python scripts/predict_match.py --match-id GRP_H05 --mode T_2H
+GRP_H05,Senegal,Iraq,T_1H,2026-06-23 20:00,0 20 23 6 *,python scripts/predict_match.py --match-id GRP_H05 --mode T_1H
+GRP_H06,Ivory Coast,Japan,T_24H,2026-06-22 21:00,0 21 22 6 *,python scripts/predict_match.py --match-id GRP_H06 --mode T_24H
+GRP_H06,Ivory Coast,Japan,T_2H,2026-06-23 19:00,0 19 23 6 *,python scripts/predict_match.py --match-id GRP_H06 --mode T_2H
+GRP_H06,Ivory Coast,Japan,T_1H,2026-06-23 20:00,0 20 23 6 *,python scripts/predict_match.py --match-id GRP_H06 --mode T_1H
+GRP_I01,Ukraine,Saudi Arabia,T_24H,2026-06-15 14:00,0 14 15 6 *,python scripts/predict_match.py --match-id GRP_I01 --mode T_24H
+GRP_I01,Ukraine,Saudi Arabia,T_2H,2026-06-16 12:00,0 12 16 6 *,python scripts/predict_match.py --match-id GRP_I01 --mode T_2H
+GRP_I01,Ukraine,Saudi Arabia,T_1H,2026-06-16 13:00,0 13 16 6 *,python scripts/predict_match.py --match-id GRP_I01 --mode T_1H
+GRP_I02,Costa Rica,Panama,T_24H,2026-06-15 17:00,0 17 15 6 *,python scripts/predict_match.py --match-id GRP_I02 --mode T_24H
+GRP_I02,Costa Rica,Panama,T_2H,2026-06-16 15:00,0 15 16 6 *,python scripts/predict_match.py --match-id GRP_I02 --mode T_2H
+GRP_I02,Costa Rica,Panama,T_1H,2026-06-16 16:00,0 16 16 6 *,python scripts/predict_match.py --match-id GRP_I02 --mode T_1H
+GRP_I03,Ukraine,Costa Rica,T_24H,2026-06-19 14:00,0 14 19 6 *,python scripts/predict_match.py --match-id GRP_I03 --mode T_24H
+GRP_I03,Ukraine,Costa Rica,T_2H,2026-06-20 12:00,0 12 20 6 *,python scripts/predict_match.py --match-id GRP_I03 --mode T_2H
+GRP_I03,Ukraine,Costa Rica,T_1H,2026-06-20 13:00,0 13 20 6 *,python scripts/predict_match.py --match-id GRP_I03 --mode T_1H
+GRP_I04,Saudi Arabia,Panama,T_24H,2026-06-19 17:00,0 17 19 6 *,python scripts/predict_match.py --match-id GRP_I04 --mode T_24H
+GRP_I04,Saudi Arabia,Panama,T_2H,2026-06-20 15:00,0 15 20 6 *,python scripts/predict_match.py --match-id GRP_I04 --mode T_2H
+GRP_I04,Saudi Arabia,Panama,T_1H,2026-06-20 16:00,0 16 20 6 *,python scripts/predict_match.py --match-id GRP_I04 --mode T_1H
+GRP_I05,Ukraine,Panama,T_24H,2026-06-23 17:00,0 17 23 6 *,python scripts/predict_match.py --match-id GRP_I05 --mode T_24H
+GRP_I05,Ukraine,Panama,T_2H,2026-06-24 15:00,0 15 24 6 *,python scripts/predict_match.py --match-id GRP_I05 --mode T_2H
+GRP_I05,Ukraine,Panama,T_1H,2026-06-24 16:00,0 16 24 6 *,python scripts/predict_match.py --match-id GRP_I05 --mode T_1H
+GRP_I06,Saudi Arabia,Costa Rica,T_24H,2026-06-23 17:00,0 17 23 6 *,python scripts/predict_match.py --match-id GRP_I06 --mode T_24H
+GRP_I06,Saudi Arabia,Costa Rica,T_2H,2026-06-24 15:00,0 15 24 6 *,python scripts/predict_match.py --match-id GRP_I06 --mode T_2H
+GRP_I06,Saudi Arabia,Costa Rica,T_1H,2026-06-24 16:00,0 16 24 6 *,python scripts/predict_match.py --match-id GRP_I06 --mode T_1H
+GRP_J01,Australia,Bolivia,T_24H,2026-06-15 20:00,0 20 15 6 *,python scripts/predict_match.py --match-id GRP_J01 --mode T_24H
+GRP_J01,Australia,Bolivia,T_2H,2026-06-16 18:00,0 18 16 6 *,python scripts/predict_match.py --match-id GRP_J01 --mode T_2H
+GRP_J01,Australia,Bolivia,T_1H,2026-06-16 19:00,0 19 16 6 *,python scripts/predict_match.py --match-id GRP_J01 --mode T_1H
+GRP_J02,Cameroon,Egypt,T_24H,2026-06-15 23:00,0 23 15 6 *,python scripts/predict_match.py --match-id GRP_J02 --mode T_24H
+GRP_J02,Cameroon,Egypt,T_2H,2026-06-16 21:00,0 21 16 6 *,python scripts/predict_match.py --match-id GRP_J02 --mode T_2H
+GRP_J02,Cameroon,Egypt,T_1H,2026-06-16 22:00,0 22 16 6 *,python scripts/predict_match.py --match-id GRP_J02 --mode T_1H
+GRP_J03,Australia,Cameroon,T_24H,2026-06-20 14:00,0 14 20 6 *,python scripts/predict_match.py --match-id GRP_J03 --mode T_24H
+GRP_J03,Australia,Cameroon,T_2H,2026-06-21 12:00,0 12 21 6 *,python scripts/predict_match.py --match-id GRP_J03 --mode T_2H
+GRP_J03,Australia,Cameroon,T_1H,2026-06-21 13:00,0 13 21 6 *,python scripts/predict_match.py --match-id GRP_J03 --mode T_1H
+GRP_J04,Bolivia,Egypt,T_24H,2026-06-20 17:00,0 17 20 6 *,python scripts/predict_match.py --match-id GRP_J04 --mode T_24H
+GRP_J04,Bolivia,Egypt,T_2H,2026-06-21 15:00,0 15 21 6 *,python scripts/predict_match.py --match-id GRP_J04 --mode T_2H
+GRP_J04,Bolivia,Egypt,T_1H,2026-06-21 16:00,0 16 21 6 *,python scripts/predict_match.py --match-id GRP_J04 --mode T_1H
+GRP_J05,Australia,Egypt,T_24H,2026-06-23 21:00,0 21 23 6 *,python scripts/predict_match.py --match-id GRP_J05 --mode T_24H
+GRP_J05,Australia,Egypt,T_2H,2026-06-24 19:00,0 19 24 6 *,python scripts/predict_match.py --match-id GRP_J05 --mode T_2H
+GRP_J05,Australia,Egypt,T_1H,2026-06-24 20:00,0 20 24 6 *,python scripts/predict_match.py --match-id GRP_J05 --mode T_1H
+GRP_J06,Bolivia,Cameroon,T_24H,2026-06-23 21:00,0 21 23 6 *,python scripts/predict_match.py --match-id GRP_J06 --mode T_24H
+GRP_J06,Bolivia,Cameroon,T_2H,2026-06-24 19:00,0 19 24 6 *,python scripts/predict_match.py --match-id GRP_J06 --mode T_2H
+GRP_J06,Bolivia,Cameroon,T_1H,2026-06-24 20:00,0 20 24 6 *,python scripts/predict_match.py --match-id GRP_J06 --mode T_1H
+GRP_K01,Algeria,Tunisia,T_24H,2026-06-16 14:00,0 14 16 6 *,python scripts/predict_match.py --match-id GRP_K01 --mode T_24H
+GRP_K01,Algeria,Tunisia,T_2H,2026-06-17 12:00,0 12 17 6 *,python scripts/predict_match.py --match-id GRP_K01 --mode T_2H
+GRP_K01,Algeria,Tunisia,T_1H,2026-06-17 13:00,0 13 17 6 *,python scripts/predict_match.py --match-id GRP_K01 --mode T_1H
+GRP_K02,South Africa,DR Congo,T_24H,2026-06-16 17:00,0 17 16 6 *,python scripts/predict_match.py --match-id GRP_K02 --mode T_24H
+GRP_K02,South Africa,DR Congo,T_2H,2026-06-17 15:00,0 15 17 6 *,python scripts/predict_match.py --match-id GRP_K02 --mode T_2H
+GRP_K02,South Africa,DR Congo,T_1H,2026-06-17 16:00,0 16 17 6 *,python scripts/predict_match.py --match-id GRP_K02 --mode T_1H
+GRP_K03,Algeria,South Africa,T_24H,2026-06-20 20:00,0 20 20 6 *,python scripts/predict_match.py --match-id GRP_K03 --mode T_24H
+GRP_K03,Algeria,South Africa,T_2H,2026-06-21 18:00,0 18 21 6 *,python scripts/predict_match.py --match-id GRP_K03 --mode T_2H
+GRP_K03,Algeria,South Africa,T_1H,2026-06-21 19:00,0 19 21 6 *,python scripts/predict_match.py --match-id GRP_K03 --mode T_1H
+GRP_K04,Tunisia,DR Congo,T_24H,2026-06-20 23:00,0 23 20 6 *,python scripts/predict_match.py --match-id GRP_K04 --mode T_24H
+GRP_K04,Tunisia,DR Congo,T_2H,2026-06-21 21:00,0 21 21 6 *,python scripts/predict_match.py --match-id GRP_K04 --mode T_2H
+GRP_K04,Tunisia,DR Congo,T_1H,2026-06-21 22:00,0 22 21 6 *,python scripts/predict_match.py --match-id GRP_K04 --mode T_1H
+GRP_K05,Algeria,DR Congo,T_24H,2026-06-24 21:00,0 21 24 6 *,python scripts/predict_match.py --match-id GRP_K05 --mode T_24H
+GRP_K05,Algeria,DR Congo,T_2H,2026-06-25 19:00,0 19 25 6 *,python scripts/predict_match.py --match-id GRP_K05 --mode T_2H
+GRP_K05,Algeria,DR Congo,T_1H,2026-06-25 20:00,0 20 25 6 *,python scripts/predict_match.py --match-id GRP_K05 --mode T_1H
+GRP_K06,Tunisia,South Africa,T_24H,2026-06-24 21:00,0 21 24 6 *,python scripts/predict_match.py --match-id GRP_K06 --mode T_24H
+GRP_K06,Tunisia,South Africa,T_2H,2026-06-25 19:00,0 19 25 6 *,python scripts/predict_match.py --match-id GRP_K06 --mode T_2H
+GRP_K06,Tunisia,South Africa,T_1H,2026-06-25 20:00,0 20 25 6 *,python scripts/predict_match.py --match-id GRP_K06 --mode T_1H
+GRP_L01,Iran,Uzbekistan,T_24H,2026-06-16 20:00,0 20 16 6 *,python scripts/predict_match.py --match-id GRP_L01 --mode T_24H
+GRP_L01,Iran,Uzbekistan,T_2H,2026-06-17 18:00,0 18 17 6 *,python scripts/predict_match.py --match-id GRP_L01 --mode T_2H
+GRP_L01,Iran,Uzbekistan,T_1H,2026-06-17 19:00,0 19 17 6 *,python scripts/predict_match.py --match-id GRP_L01 --mode T_1H
+GRP_L02,Jordan,New Zealand,T_24H,2026-06-16 23:00,0 23 16 6 *,python scripts/predict_match.py --match-id GRP_L02 --mode T_24H
+GRP_L02,Jordan,New Zealand,T_2H,2026-06-17 21:00,0 21 17 6 *,python scripts/predict_match.py --match-id GRP_L02 --mode T_2H
+GRP_L02,Jordan,New Zealand,T_1H,2026-06-17 22:00,0 22 17 6 *,python scripts/predict_match.py --match-id GRP_L02 --mode T_1H
+GRP_L03,Iran,Jordan,T_24H,2026-06-21 14:00,0 14 21 6 *,python scripts/predict_match.py --match-id GRP_L03 --mode T_24H
+GRP_L03,Iran,Jordan,T_2H,2026-06-22 12:00,0 12 22 6 *,python scripts/predict_match.py --match-id GRP_L03 --mode T_2H
+GRP_L03,Iran,Jordan,T_1H,2026-06-22 13:00,0 13 22 6 *,python scripts/predict_match.py --match-id GRP_L03 --mode T_1H
+GRP_L04,Uzbekistan,New Zealand,T_24H,2026-06-21 17:00,0 17 21 6 *,python scripts/predict_match.py --match-id GRP_L04 --mode T_24H
+GRP_L04,Uzbekistan,New Zealand,T_2H,2026-06-22 15:00,0 15 22 6 *,python scripts/predict_match.py --match-id GRP_L04 --mode T_2H
+GRP_L04,Uzbekistan,New Zealand,T_1H,2026-06-22 16:00,0 16 22 6 *,python scripts/predict_match.py --match-id GRP_L04 --mode T_1H
+GRP_L05,Iran,New Zealand,T_24H,2026-06-25 17:00,0 17 25 6 *,python scripts/predict_match.py --match-id GRP_L05 --mode T_24H
+GRP_L05,Iran,New Zealand,T_2H,2026-06-26 15:00,0 15 26 6 *,python scripts/predict_match.py --match-id GRP_L05 --mode T_2H
+GRP_L05,Iran,New Zealand,T_1H,2026-06-26 16:00,0 16 26 6 *,python scripts/predict_match.py --match-id GRP_L05 --mode T_1H
+GRP_L06,Uzbekistan,Jordan,T_24H,2026-06-25 17:00,0 17 25 6 *,python scripts/predict_match.py --match-id GRP_L06 --mode T_24H
+GRP_L06,Uzbekistan,Jordan,T_2H,2026-06-26 15:00,0 15 26 6 *,python scripts/predict_match.py --match-id GRP_L06 --mode T_2H
+GRP_L06,Uzbekistan,Jordan,T_1H,2026-06-26 16:00,0 16 26 6 *,python scripts/predict_match.py --match-id GRP_L06 --mode T_1H
