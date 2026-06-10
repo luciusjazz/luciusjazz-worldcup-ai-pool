@@ -62,3 +62,20 @@ def test_confidence_auditor_flags_high_confidence():
     )
     text = " ".join(result.findings).lower()
     assert any(word in text for word in ["confiança", "excesso", "alta", "alerta"])
+
+
+def test_agent_result_has_adjustment_fields():
+    result = AgentResult()
+    assert hasattr(result, "adjustment_home")
+    assert hasattr(result, "adjustment_away")
+    assert hasattr(result, "rationale")
+    assert result.adjustment_home == 0.0
+    assert result.adjustment_away == 0.0
+    assert result.rationale == ""
+
+
+def test_agent_result_accepts_adjustment_values():
+    result = AgentResult(adjustment_home=0.05, adjustment_away=-0.03, rationale="Teste")
+    assert result.adjustment_home == 0.05
+    assert result.adjustment_away == -0.03
+    assert result.rationale == "Teste"

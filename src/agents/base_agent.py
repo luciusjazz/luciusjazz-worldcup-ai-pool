@@ -7,6 +7,9 @@ class AgentResult:
     findings: list[str] = field(default_factory=list)
     confidence: float = 0.5
     recommendations: list[str] = field(default_factory=list)
+    adjustment_home: float = 0.0
+    adjustment_away: float = 0.0
+    rationale: str = ""
 
 
 class BaseAgent(ABC):
@@ -15,4 +18,4 @@ class BaseAgent(ABC):
 
     @abstractmethod
     def analyze(self, context: dict) -> AgentResult:
-        """Analisa o contexto e retorna findings, confidence e recommendations."""
+        """Analisa o contexto e retorna findings, confidence, recommendations e ajustes direcionais."""
