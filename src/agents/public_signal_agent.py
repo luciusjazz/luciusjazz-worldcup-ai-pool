@@ -17,4 +17,7 @@ class PublicSignalAgent(BaseAgent):
                 "Verificar odds médias em Oddsportal ou similar antes do jogo.",
                 "Movimentos de linha acima de 5% merecem atenção.",
             ],
+            adjustment_home=0.0,
+            adjustment_away=0.0,
+            rationale="Sem sinais de mercado coletados — ajuste neutro aplicado.",
         )

@@ -79,3 +79,21 @@ def test_agent_result_accepts_adjustment_values():
     assert result.adjustment_home == 0.05
     assert result.adjustment_away == -0.03
     assert result.rationale == "Teste"
+
+
+PLACEHOLDER_AGENTS = [
+    JournalistAgent,
+    PublicSignalAgent,
+    LineupAgent,
+    WeatherAgent,
+    TacticalAgent,
+]
+
+
+@pytest.mark.parametrize("AgentClass", PLACEHOLDER_AGENTS)
+def test_placeholder_agent_has_neutral_adjustment(AgentClass):
+    agent = AgentClass()
+    result = agent.analyze(MATCH_CONTEXT)
+    assert result.adjustment_home == 0.0
+    assert result.adjustment_away == 0.0
+    assert len(result.rationale) > 0

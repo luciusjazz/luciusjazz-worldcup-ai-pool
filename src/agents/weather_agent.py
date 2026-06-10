@@ -15,6 +15,9 @@ class WeatherAgent(BaseAgent):
             confidence=0.2,
             recommendations=[
                 "Verificar previsão do tempo para o estádio no dia do jogo.",
-                "Temperatura > 35°C ou chuva forte: reduzir ligeiramente lambda.",
+                "Temperatura > 35°C ou chuva forte: considerar redução de lambda.",
             ],
+            adjustment_home=0.0,
+            adjustment_away=0.0,
+            rationale="Clima não verificado — ajuste neutro aplicado.",
         )

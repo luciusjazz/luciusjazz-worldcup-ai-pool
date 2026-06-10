@@ -17,4 +17,7 @@ class LineupAgent(BaseAgent):
                 "Confirmar titulares via site oficial das federações.",
                 "Atenção especial a goleiro titular e artilheiro principal.",
             ],
+            adjustment_home=0.0,
+            adjustment_away=0.0,
+            rationale="Escalações não confirmadas — ajuste neutro aplicado.",
         )

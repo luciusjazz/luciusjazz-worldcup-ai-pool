@@ -17,4 +17,7 @@ class JournalistAgent(BaseAgent):
                 "Verificar notícias de lesões e suspensões 24h antes do jogo.",
                 "Confirmar status de jogadores-chave na véspera.",
             ],
+            adjustment_home=0.0,
+            adjustment_away=0.0,
+            rationale="Sem notícias coletadas — ajuste neutro aplicado.",
         )

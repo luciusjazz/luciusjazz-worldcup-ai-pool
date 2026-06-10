@@ -17,4 +17,7 @@ class TacticalAgent(BaseAgent):
                 "Verificar esquema tático (Sofascore, WhoScored).",
                 "Avaliar pressão alta vs. bloco baixo — impacta ritmo de gols.",
             ],
+            adjustment_home=0.0,
+            adjustment_away=0.0,
+            rationale="Sem dados táticos — ajuste neutro aplicado.",
         )
