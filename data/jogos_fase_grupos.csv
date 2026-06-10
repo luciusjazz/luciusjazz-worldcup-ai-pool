@@ -1,0 +1,3 @@
+match_id,data_hora_brasilia,grupo,selecao_a,selecao_b,local,status
+MATCH001,2026-06-11 16:00,A,Time A,Time B,A definir,scheduled
+MATCH002,2026-06-11 19:00,A,Time C,Time D,A definir,scheduled
