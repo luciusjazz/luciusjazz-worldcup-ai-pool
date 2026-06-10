@@ -1,5 +1,6 @@
 # tests/test_dixon_coles.py
 import pytest
+
 from src.models.dixon_coles import DixonColesModel, dixon_coles_adjustment
 
 
@@ -28,18 +29,29 @@ def model():
 
 def test_predict_returns_required_keys(model):
     result = model.predict(
-        home_team="Japan", away_team="Iraq",
-        lambda_home=1.1, lambda_away=0.9,
+        home_team="Japan",
+        away_team="Iraq",
+        lambda_home=1.1,
+        lambda_away=0.9,
     )
-    for key in ("home_team", "away_team", "prob_home", "prob_draw", "prob_away",
-                "recommended_score", "confidence"):
+    for key in (
+        "home_team",
+        "away_team",
+        "prob_home",
+        "prob_draw",
+        "prob_away",
+        "recommended_score",
+        "confidence",
+    ):
         assert key in result
 
 
 def test_probabilities_sum_to_one(model):
     result = model.predict(
-        home_team="A", away_team="B",
-        lambda_home=1.3, lambda_away=1.0,
+        home_team="A",
+        away_team="B",
+        lambda_home=1.3,
+        lambda_away=1.0,
     )
     total = result["prob_home"] + result["prob_draw"] + result["prob_away"]
     assert abs(total - 1.0) < 0.001

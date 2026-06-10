@@ -1,20 +1,25 @@
 # tests/test_agents.py
 import pytest
-from src.agents.base_agent import AgentResult
-from src.agents.journalist_agent import JournalistAgent
-from src.agents.public_signal_agent import PublicSignalAgent
-from src.agents.lineup_agent import LineupAgent
-from src.agents.weather_agent import WeatherAgent
-from src.agents.tactical_agent import TacticalAgent
-from src.agents.historical_agent import HistoricalAgent
-from src.agents.red_team_agent import RedTeamAgent
-from src.agents.confidence_auditor import ConfidenceAuditor
 
+from src.agents.base_agent import AgentResult
+from src.agents.confidence_auditor import ConfidenceAuditor
+from src.agents.historical_agent import HistoricalAgent
+from src.agents.journalist_agent import JournalistAgent
+from src.agents.lineup_agent import LineupAgent
+from src.agents.public_signal_agent import PublicSignalAgent
+from src.agents.red_team_agent import RedTeamAgent
+from src.agents.tactical_agent import TacticalAgent
+from src.agents.weather_agent import WeatherAgent
 
 ALL_AGENTS = [
-    JournalistAgent, PublicSignalAgent, LineupAgent,
-    WeatherAgent, TacticalAgent, HistoricalAgent,
-    RedTeamAgent, ConfidenceAuditor,
+    JournalistAgent,
+    PublicSignalAgent,
+    LineupAgent,
+    WeatherAgent,
+    TacticalAgent,
+    HistoricalAgent,
+    RedTeamAgent,
+    ConfidenceAuditor,
 ]
 
 MATCH_CONTEXT = {
@@ -52,6 +57,8 @@ def test_agent_findings_are_strings(AgentClass):
 
 def test_confidence_auditor_flags_high_confidence():
     auditor = ConfidenceAuditor()
-    result = auditor.analyze({**MATCH_CONTEXT, "prob_home": 0.95, "prob_draw": 0.03, "prob_away": 0.02})
+    result = auditor.analyze(
+        {**MATCH_CONTEXT, "prob_home": 0.95, "prob_draw": 0.03, "prob_away": 0.02}
+    )
     text = " ".join(result.findings).lower()
     assert any(word in text for word in ["confiança", "excesso", "alta", "alerta"])

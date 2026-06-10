@@ -3,11 +3,10 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import dataclass
-from typing import Optional
 
 import numpy as np
 
-from src.models.elo_model import _recommended_score, _confidence
+from src.models.elo_model import _confidence, _recommended_score
 
 
 @dataclass
@@ -25,15 +24,20 @@ class MonteCarloSimulation:
 
     def predict(
         self,
-        home_team: str, away_team: str,
-        lambda_home: float, lambda_away: float,
+        home_team: str,
+        away_team: str,
+        lambda_home: float,
+        lambda_away: float,
     ) -> dict:
         dist = self.simulate(lambda_home, lambda_away)
         ph = sum(p for gh, ga, p in dist if gh > ga)
         pd = sum(p for gh, ga, p in dist if gh == ga)
         pa = sum(p for gh, ga, p in dist if gh < ga)
         gh, ga = _recommended_score(sorted(dist, key=lambda x: x[2], reverse=True))
-        top5 = [(gh2, ga2, round(p, 4)) for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]]
+        top5 = [
+            (gh2, ga2, round(p, 4))
+            for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]
+        ]
 
         return {
             "home_team": home_team,

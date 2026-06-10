@@ -21,8 +21,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 REQUIRED_COLUMNS = {
-    "match_id", "date_utc", "date_brasilia", "stage",
-    "group", "home_team", "away_team", "stadium", "city", "country", "status"
+    "match_id",
+    "date_utc",
+    "date_brasilia",
+    "stage",
+    "group",
+    "home_team",
+    "away_team",
+    "stadium",
+    "city",
+    "country",
+    "status",
 }
 
 PLACEHOLDER_INDICATORS = ["a definir", "tbd", "placeholder", "?"]

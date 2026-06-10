@@ -1,9 +1,7 @@
 # src/models/poisson_model.py
 from dataclasses import dataclass
 
-from src.models.elo_model import (
-    _score_distribution, _summarize, _recommended_score, _confidence
-)
+from src.models.elo_model import _confidence, _recommended_score, _score_distribution, _summarize
 
 HOME_ADVANTAGE = 1.12
 
@@ -11,6 +9,7 @@ HOME_ADVANTAGE = 1.12
 @dataclass
 class PoissonModel:
     """Modelo Poisson clássico com força de ataque/defesa relativa à média do torneio."""
+
     avg_home_goals: float = 1.35
     avg_away_goals: float = 1.10
     home_advantage: float = HOME_ADVANTAGE
@@ -23,9 +22,12 @@ class PoissonModel:
 
     def predict(
         self,
-        home_team: str, away_team: str,
-        home_attack: float, home_defense: float,
-        away_attack: float, away_defense: float,
+        home_team: str,
+        away_team: str,
+        home_attack: float,
+        home_defense: float,
+        away_attack: float,
+        away_defense: float,
     ) -> dict:
         lh = self.avg_home_goals * home_attack * away_defense * self.home_advantage
         la = self.avg_away_goals * away_attack * home_defense
@@ -34,7 +36,10 @@ class PoissonModel:
         dist = _score_distribution(lh, la)
         ph, pd, pa = _summarize(dist)
         gh, ga = _recommended_score(dist)
-        top5 = [(gh2, ga2, round(p, 4)) for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]]
+        top5 = [
+            (gh2, ga2, round(p, 4))
+            for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]
+        ]
 
         return {
             "home_team": home_team,

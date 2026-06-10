@@ -9,7 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 def run_script(*args):
     result = subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "predict_match.py"), *args],
-        capture_output=True, text=True, cwd=ROOT,
+        capture_output=True,
+        text=True,
+        cwd=ROOT,
     )
     return result
 

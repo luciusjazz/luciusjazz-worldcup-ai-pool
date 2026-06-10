@@ -1,1 +1,3 @@
 match_id,mode,selecao_a,selecao_b,placar_a,placar_b,prob_a,prob_empate,prob_b,confianca,ultima_revisao,observacoes
+MATCH001,initial,Time A,Time B,0,0,0.409,0.269,0.323,Baixa,2026-06-10T00:00:01,"xG Time A=1.34; xG Time B=1.16; top=[(1, 1, np.float64(0.12760158049179704)), (1, 0, np.float64(0.10992732738558367)), (0, 1, np.float64(0.09508093085894763)), (2, 1, np.float64(0.085622654284691)), (0, 0, np.float64(0.08191115325040581))]"
+MATCH002,initial,Time C,Time D,0,0,0.402,0.269,0.328,Baixa,2026-06-10T00:00:01,"xG Time C=1.33; xG Time D=1.17; top=[(1, 1, np.float64(0.12786229895023912)), (1, 0, np.float64(0.10914094361365101)), (0, 1, np.float64(0.09630242828634437)), (2, 1, np.float64(0.0848824260392952)), (0, 0, np.float64(0.08220200936280699))]"

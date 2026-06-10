@@ -1,4 +1,5 @@
-from src.agents.base_agent import BaseAgent, AgentResult
+from src.agents.base_agent import AgentResult, BaseAgent
+
 
 class PublicSignalAgent(BaseAgent):
     name = "Analista de Sinais Públicos"

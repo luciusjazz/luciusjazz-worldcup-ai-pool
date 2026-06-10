@@ -1,4 +1,5 @@
-from src.agents.base_agent import BaseAgent, AgentResult
+from src.agents.base_agent import AgentResult, BaseAgent
+
 
 class ConfidenceAuditor(BaseAgent):
     name = "Auditor de Confiança"
@@ -22,11 +23,17 @@ class ConfidenceAuditor(BaseAgent):
                 "Revisar premissas; reduzir confiança para 'Moderada' se não houver dados sólidos."
             )
         elif max_prob > 0.55:
-            findings.append(f"Confiança moderada a alta ({max_prob:.0%}). Aceitável se baseada em dados.")
+            findings.append(
+                f"Confiança moderada a alta ({max_prob:.0%}). Aceitável se baseada em dados."
+            )
         else:
-            findings.append(f"Jogo equilibrado (max prob: {max_prob:.0%}). Confiança baixa é apropriada.")
+            findings.append(
+                f"Jogo equilibrado (max prob: {max_prob:.0%}). Confiança baixa é apropriada."
+            )
 
-        findings.append("Auditoria: verificar se todas as fontes foram consultadas antes do palpite final.")
+        findings.append(
+            "Auditoria: verificar se todas as fontes foram consultadas antes do palpite final."
+        )
         recommendations.append("Documentar limitações no relatório final.")
 
         return AgentResult(

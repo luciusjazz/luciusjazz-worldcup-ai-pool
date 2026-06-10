@@ -1,5 +1,6 @@
 # tests/test_monte_carlo.py
 import pytest
+
 from src.models.monte_carlo import MonteCarloSimulation
 
 
@@ -24,11 +25,21 @@ def test_stronger_team_wins_more(sim):
 
 def test_predict_returns_required_keys(sim):
     result = sim.predict(
-        home_team="Brazil", away_team="Bolivia",
-        lambda_home=1.8, lambda_away=0.7,
+        home_team="Brazil",
+        away_team="Bolivia",
+        lambda_home=1.8,
+        lambda_away=0.7,
     )
-    for key in ("home_team", "away_team", "prob_home", "prob_draw", "prob_away",
-                "recommended_score", "confidence", "simulations"):
+    for key in (
+        "home_team",
+        "away_team",
+        "prob_home",
+        "prob_draw",
+        "prob_away",
+        "recommended_score",
+        "confidence",
+        "simulations",
+    ):
         assert key in result
 
 

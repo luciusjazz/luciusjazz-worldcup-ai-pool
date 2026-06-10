@@ -1,6 +1,7 @@
 # tests/test_history.py
+
 import pytest
-from pathlib import Path
+
 from src.history import HistoryStore, PredictionRecord
 
 
@@ -59,9 +60,12 @@ def test_multiple_revisions_accumulate(store):
             home_team="Canada",
             away_team="Croatia",
             recommended_score=(1, 1),
-            prob_home=0.33, prob_draw=0.34, prob_away=0.33,
+            prob_home=0.33,
+            prob_draw=0.34,
+            prob_away=0.33,
             confidence="Baixa",
-            lambda_home=1.1, lambda_away=1.1,
+            lambda_home=1.1,
+            lambda_away=1.1,
             top5_scores=[],
             notes=f"Revisão {mode}",
         )
@@ -75,13 +79,19 @@ def test_multiple_revisions_accumulate(store):
 def test_load_all_returns_dict(store):
     for mid in ["GRP_A01", "GRP_B01"]:
         record = PredictionRecord(
-            match_id=mid, mode="INITIAL",
-            home_team="A", away_team="B",
+            match_id=mid,
+            mode="INITIAL",
+            home_team="A",
+            away_team="B",
             recommended_score=(1, 0),
-            prob_home=0.5, prob_draw=0.3, prob_away=0.2,
+            prob_home=0.5,
+            prob_draw=0.3,
+            prob_away=0.2,
             confidence="Baixa",
-            lambda_home=1.2, lambda_away=0.9,
-            top5_scores=[], notes="",
+            lambda_home=1.2,
+            lambda_away=0.9,
+            top5_scores=[],
+            notes="",
         )
         store.save(record)
     all_data = store.load_all()
@@ -91,11 +101,17 @@ def test_load_all_returns_dict(store):
 def test_invalid_mode_raises(store):
     with pytest.raises(ValueError):
         PredictionRecord(
-            match_id="X", mode="INVALID",
-            home_team="A", away_team="B",
+            match_id="X",
+            mode="INVALID",
+            home_team="A",
+            away_team="B",
             recommended_score=(1, 0),
-            prob_home=0.5, prob_draw=0.3, prob_away=0.2,
+            prob_home=0.5,
+            prob_draw=0.3,
+            prob_away=0.2,
             confidence="Baixa",
-            lambda_home=1.2, lambda_away=0.9,
-            top5_scores=[], notes="",
+            lambda_home=1.2,
+            lambda_away=0.9,
+            top5_scores=[],
+            notes="",
         )

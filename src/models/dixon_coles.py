@@ -1,9 +1,7 @@
 # src/models/dixon_coles.py
 from dataclasses import dataclass
 
-from src.models.elo_model import (
-    _poisson_pmf, _summarize, _recommended_score, _confidence
-)
+from src.models.elo_model import _confidence, _poisson_pmf, _recommended_score, _summarize
 
 
 def dixon_coles_adjustment(gh: int, ga: int, lambda_h: float, lambda_a: float, rho: float) -> float:
@@ -36,13 +34,18 @@ class DixonColesModel:
 
     def predict(
         self,
-        home_team: str, away_team: str,
-        lambda_home: float, lambda_away: float,
+        home_team: str,
+        away_team: str,
+        lambda_home: float,
+        lambda_away: float,
     ) -> dict:
         dist = _dc_distribution(lambda_home, lambda_away, self.rho)
         ph, pd, pa = _summarize(dist)
         gh, ga = _recommended_score(dist)
-        top5 = [(gh2, ga2, round(p, 4)) for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]]
+        top5 = [
+            (gh2, ga2, round(p, 4))
+            for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]
+        ]
 
         return {
             "home_team": home_team,

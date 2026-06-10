@@ -1,10 +1,10 @@
 # src/models/ensemble_model.py
 from dataclasses import dataclass, field
 
-from src.models.elo_model import EloModel, _recommended_score, _confidence
-from src.models.poisson_model import PoissonModel
 from src.models.dixon_coles import DixonColesModel
+from src.models.elo_model import EloModel, _confidence, _recommended_score
 from src.models.monte_carlo import MonteCarloSimulation
+from src.models.poisson_model import PoissonModel
 
 
 @dataclass
@@ -34,10 +34,14 @@ class EnsembleModel:
 
     def predict(
         self,
-        home_team: str, away_team: str,
-        elo_home: float, elo_away: float,
-        attack_home: float, defense_home: float,
-        attack_away: float, defense_away: float,
+        home_team: str,
+        away_team: str,
+        elo_home: float,
+        elo_away: float,
+        attack_home: float,
+        defense_home: float,
+        attack_away: float,
+        defense_away: float,
         context_adjustment: float = 0.0,
     ) -> dict:
         lh_elo, la_elo = self._elo.expected_goals(
@@ -69,7 +73,9 @@ class EnsembleModel:
         total = ph + pd + pa
         ph, pd, pa = ph / total, pd / total, pa / total
 
-        gh, ga = _recommended_score(sorted(dc_result["top5_scores"], key=lambda x: x[2], reverse=True))
+        gh, ga = _recommended_score(
+            sorted(dc_result["top5_scores"], key=lambda x: x[2], reverse=True)
+        )
 
         return {
             "home_team": home_team,

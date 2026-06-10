@@ -1,4 +1,5 @@
 """Entry-point CLI para geração e revisão de palpites."""
+
 import argparse
 import sys
 from pathlib import Path
@@ -8,8 +9,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.models.ensemble_model import EnsembleModel
 from src.history import HistoryStore, PredictionRecord
+from src.models.ensemble_model import EnsembleModel
 from src.revision import RevisionManager
 
 DATA = ROOT / "data"
@@ -22,7 +23,9 @@ def load_data() -> tuple[pd.DataFrame, pd.DataFrame]:
     return matches, teams
 
 
-def predict_match(row: pd.Series, teams: pd.DataFrame, mode: str, model: EnsembleModel) -> PredictionRecord:
+def predict_match(
+    row: pd.Series, teams: pd.DataFrame, mode: str, model: EnsembleModel
+) -> PredictionRecord:
     home, away = row["home_team"], row["away_team"]
 
     if home not in teams.index:
@@ -32,10 +35,14 @@ def predict_match(row: pd.Series, teams: pd.DataFrame, mode: str, model: Ensembl
 
     th, ta = teams.loc[home], teams.loc[away]
     result = model.predict(
-        home_team=home, away_team=away,
-        elo_home=th["elo"], elo_away=ta["elo"],
-        attack_home=th["attack_rating"], defense_home=th["defense_rating"],
-        attack_away=ta["attack_rating"], defense_away=ta["defense_rating"],
+        home_team=home,
+        away_team=away,
+        elo_home=th["elo"],
+        elo_away=ta["elo"],
+        attack_home=th["attack_rating"],
+        defense_home=th["defense_rating"],
+        attack_away=ta["attack_rating"],
+        defense_away=ta["defense_rating"],
     )
 
     return PredictionRecord(
@@ -88,7 +95,9 @@ def main():
             revision_mgr.save_revision(record)
             records.append(record)
             gh, ga = record.recommended_score
-            print(f"{record.match_id} | {record.home_team} {gh}-{ga} {record.away_team} | {record.confidence}")
+            print(
+                f"{record.match_id} | {record.home_team} {gh}-{ga} {record.away_team} | {record.confidence}"
+            )
         except ValueError as e:
             print(f"AVISO: {e}", file=sys.stderr)
 

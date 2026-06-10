@@ -2,7 +2,21 @@
 import math
 from dataclasses import dataclass
 
-COMMON_SCORES = [(0,0),(1,0),(0,1),(1,1),(2,0),(0,2),(2,1),(1,2),(2,2),(3,1),(1,3),(3,0),(0,3)]
+COMMON_SCORES = [
+    (0, 0),
+    (1, 0),
+    (0, 1),
+    (1, 1),
+    (2, 0),
+    (0, 2),
+    (2, 1),
+    (1, 2),
+    (2, 2),
+    (3, 1),
+    (1, 3),
+    (3, 0),
+    (0, 3),
+]
 BASE_GOALS = 1.15
 ELO_K = 400
 ELO_WEIGHT = 0.20
@@ -54,9 +68,12 @@ class EloModel:
 
     def expected_goals(
         self,
-        elo_a: float, elo_b: float,
-        attack_a: float, defense_a: float,
-        attack_b: float, defense_b: float,
+        elo_a: float,
+        elo_b: float,
+        attack_a: float,
+        defense_a: float,
+        attack_b: float,
+        defense_b: float,
     ) -> tuple[float, float]:
         diff = (elo_a - elo_b) / ELO_K
         la = self.base_goals * attack_a * defense_b * (1 + self.elo_weight * diff)
@@ -65,16 +82,25 @@ class EloModel:
 
     def predict(
         self,
-        home_team: str, away_team: str,
-        elo_home: float, elo_away: float,
-        attack_home: float, defense_home: float,
-        attack_away: float, defense_away: float,
+        home_team: str,
+        away_team: str,
+        elo_home: float,
+        elo_away: float,
+        attack_home: float,
+        defense_home: float,
+        attack_away: float,
+        defense_away: float,
     ) -> dict:
-        lh, la = self.expected_goals(elo_home, elo_away, attack_home, defense_home, attack_away, defense_away)
+        lh, la = self.expected_goals(
+            elo_home, elo_away, attack_home, defense_home, attack_away, defense_away
+        )
         dist = _score_distribution(lh, la)
         ph, pd, pa = _summarize(dist)
         gh, ga = _recommended_score(dist)
-        top5 = [(gh2, ga2, round(p, 4)) for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]]
+        top5 = [
+            (gh2, ga2, round(p, 4))
+            for gh2, ga2, p in sorted(dist, key=lambda x: x[2], reverse=True)[:5]
+        ]
         return {
             "home_team": home_team,
             "away_team": away_team,

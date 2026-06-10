@@ -1,8 +1,9 @@
 # tests/test_revision.py
+
 import pytest
-from pathlib import Path
-from src.revision import RevisionManager
+
 from src.history import HistoryStore, PredictionRecord
+from src.revision import RevisionManager
 
 
 @pytest.fixture
@@ -14,13 +15,19 @@ def manager(tmp_path):
 
 def make_record(match_id, mode, score, conf):
     return PredictionRecord(
-        match_id=match_id, mode=mode,
-        home_team="Brazil", away_team="France",
+        match_id=match_id,
+        mode=mode,
+        home_team="Brazil",
+        away_team="France",
         recommended_score=score,
-        prob_home=0.40, prob_draw=0.30, prob_away=0.30,
+        prob_home=0.40,
+        prob_draw=0.30,
+        prob_away=0.30,
         confidence=conf,
-        lambda_home=1.4, lambda_away=1.2,
-        top5_scores=[], notes="",
+        lambda_home=1.4,
+        lambda_away=1.2,
+        top5_scores=[],
+        notes="",
     )
 
 
