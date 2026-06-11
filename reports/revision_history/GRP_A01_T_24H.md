@@ -1,26 +1,26 @@
-# Uzbekistan vs New Zealand — INITIAL
+# USA vs Panama — T_24H
 
-**Match ID:** GRP_L04
-**Revisão:** INITIAL
-**Timestamp:** 2026-06-10T21:43:10-03:00
+**Match ID:** GRP_A01
+**Revisão:** T_24H
+**Timestamp:** 2026-06-10T21:43:11-03:00
 
 ## Palpite
-Uzbekistan **0** x **0** New Zealand
+USA **1** x **0** Panama
 
 ## Probabilidades
-- Vitória Uzbekistan: 39.0%
-- Empate: 32.0%
-- Vitória New Zealand: 29.0%
+- Vitória USA: 46.7%
+- Empate: 25.4%
+- Vitória Panama: 27.9%
 
 ## Gols Esperados
-- Uzbekistan: 1.038
-- New Zealand: 0.846
+- USA: 1.478
+- Panama: 1.06
 
 ## Confiança
-Baixa
+Moderada
 
 ## Notas
-EnsembleModel | xG Uzbekistan=1.038 New Zealand=0.846 | context_adj=+0.0000
+EnsembleModel | xG USA=1.478 Panama=1.06 | context_adj=+0.0000
 
 ## Contribuição dos Agentes
 
@@ -31,12 +31,12 @@ EnsembleModel | xG Uzbekistan=1.038 New Zealand=0.846 | context_adj=+0.0000
 | Especialista em Escalações | 0.10 | 0.25 | +0.000 | +0.000 | +0.0000 | Escalações não confirmadas — ajuste neutro aplicado. |
 | Meteorologista | 0.05 | 0.20 | +0.000 | +0.000 | +0.0000 | Clima não verificado — ajuste neutro aplicado. |
 | Scout Tático | 0.10 | 0.30 | +0.000 | +0.000 | +0.0000 | Sem dados táticos — ajuste neutro aplicado. |
-| Historical World Cup Analyst | 0.06 | 0.70 | +0.040 | +0.040 | +0.0000 | xG total=1.88 abaixo da média histórica (2.64). Leve boost aplicado. |
+| Historical World Cup Analyst | 0.06 | 0.70 | +0.000 | +0.000 | +0.0000 | xG total=2.54 dentro da faixa histórica. Ajuste neutro. |
 | Red Team Agent | 0.05 | 0.50 | +0.000 | +0.000 | +0.0000 | Equilíbrio entre times — sem ajuste adversarial. |
-| Auditor de Confiança | 0.05 | 0.80 | +0.000 | +0.000 | +0.0000 | Probabilidades equilibradas (max=39%). Sem ajuste. |
+| Auditor de Confiança | 0.05 | 0.80 | +0.000 | +0.000 | +0.0000 | Probabilidades equilibradas (max=47%). Sem ajuste. |
 
 **Ajuste Final (context_adjustment):** +0.0000
 
 **Impacto esperado no placar:**
-- λ_casa × (1 + +0.0000) = 1.038
-- λ_visit × (1 - +0.0000) = 0.846
+- λ_casa × (1 + +0.0000) = 1.478
+- λ_visit × (1 - +0.0000) = 1.060
