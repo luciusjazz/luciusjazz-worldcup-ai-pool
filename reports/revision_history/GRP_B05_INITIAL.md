@@ -2,7 +2,7 @@
 
 **Match ID:** GRP_B05
 **Revisão:** INITIAL
-**Timestamp:** 2026-06-10T22:29:53-03:00
+**Timestamp:** 2026-06-20T20:34:23-03:00
 
 ## Palpite
 Canada **1** x **0** Belgium

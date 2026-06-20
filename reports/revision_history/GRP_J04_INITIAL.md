@@ -2,7 +2,7 @@
 
 **Match ID:** GRP_J04
 **Revisão:** INITIAL
-**Timestamp:** 2026-06-10T22:29:53-03:00
+**Timestamp:** 2026-06-20T20:34:26-03:00
 
 ## Palpite
 Bolivia **0** x **0** Egypt
